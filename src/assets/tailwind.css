@@ -1,0 +1,65 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+}
+
+#app {
+  @apply font-serif;
+} 
+#nav a{
+  @apply no-underline text-black  border-b-2 border-transparent hover:bg-gray-100 focus:bg-gray-200 uppercase tracking-wide font-bold text-lg p-3 mr-8;
+}
+.topic {
+  @apply text-base text-fuchsia-500 tracking-wider font-semibold;
+}
+
+.container {
+  @apply flex flex-col justify-center items-center p-2 min-w-full;
+}
+.survey-container {
+  @apply flex flex-col justify-start items-start p-1;
+}
+
+.logo {
+  @apply w-24 h-24;
+}
+
+.heading {
+  @apply font-bold my-2;
+}
+
+.input {
+  @apply px-3 py-2 border border-gray-900 mt-1;
+}
+
+.label {
+  @apply p-2;
+}
+.btn {
+  @apply bg-purple-900 text-white focus:outline-none px-6 py-1 mt-2;
+}
+.alert-card {
+  @apply min-h-0 bg-white  flex items-center w-1/4 fixed;
+}
+.home {
+  @apply bg-white text-gray-600 leading-normal text-base tracking-normal;
+}
+.field{
+  @apply px-3 py-2 bg-blue-100 border-2 border-gray-400 focus:border-gray-900 focus:outline-none focus:text-black
+}

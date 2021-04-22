@@ -1,0 +1,160 @@
+{
+    "products": [{
+            "id": 101,
+            "productname": "Cashew",
+            "price": 32.99,
+            "date": "",
+            "colors": [{
+                    "colorId": 1,
+                    "colorValue": "#FF0000"
+                },
+                {
+                    "colorId": 2,
+                    "colorValue": "#0000FF"
+                },
+                {
+                    "colorId": 3,
+                    "colorValue": "#FFFF00"
+                }
+            ]
+        },
+        {
+            "id": 102,
+            "productname": "Kobkieaw Almond",
+            "price": 28.99,
+            "date": "",
+            "colors": [{
+                    "colorId": 1,
+                    "colorValue": "#FF0000"
+                },
+                {
+                    "colorId": 2,
+                    "colorValue": "#0000FF"
+                },
+                {
+                    "colorId": 4,
+                    "colorValue": "#800080"
+                }
+            ]
+        },
+        {
+            "id": 103,
+            "productname": "Kobkieaw Cashew",
+            "price": 15.99,
+            "date": "",
+            "colors": [{
+                    "colorId": 1,
+                    "colorValue": "#FF0000"
+                },
+                {
+                    "colorId": 4,
+                    "colorValue": "#800080"
+                },
+                {
+                    "colorId": 5,
+                    "colorValue": "#FFC0CB"
+                }
+            ]
+
+        },
+        {
+            "id": 104,
+            "productname": "Sticker",
+            "price": 24.99,
+            "date": "",
+            "colors": [{
+                    "colorId": 1,
+                    "colorValue": "#FF0000"
+                },
+                {
+                    "colorId": 2,
+                    "colorValue": "#0000FF"
+                },
+                {
+                    "colorId": 3,
+                    "colorValue": "#FFFF00"
+                }
+            ]
+        },
+        {
+            "id": 105,
+            "productname": "Cashew Big Size",
+            "price": 12.99,
+            "date": "",
+            "colors": [{
+                    "colorId": 1,
+                    "colorValue": "#FF0000"
+                },
+                {
+                    "colorId": 2,
+                    "colorValue": "#0000FF"
+                },
+                {
+                    "colorId": 4,
+                    "colorValue": "#800080"
+                }
+            ]
+        },
+        {
+            "id": 106,
+            "productname": "Kobkieaw",
+            "price": 50.25,
+            "date": "",
+            "colors": [{
+                    "colorId": 3,
+                    "colorValue": "#FFFF00"
+                },
+                {
+                    "colorId": 4,
+                    "colorValue": "#800080"
+                },
+                {
+                    "colorId": 5,
+                    "colorValue": "#FFC0CB"
+                }
+            ]
+        }
+    ],
+    "brands": [{
+            "id": 1,
+            "brandName": "Apple"
+        },
+        {
+            "id": 2,
+            "brandName": "Samsung"
+        },
+        {
+            "id": 3,
+            "brandName": "Realme"
+        },
+        {
+            "id": 4,
+            "brandName": "Xiaome"
+        }
+    ],
+    "colors": [{
+            "colorId": 1,
+            "colorName":"Red",
+            "colorValue": "#FF0000"
+        }, {
+            "colorId": 2,
+            "colorName":"Blue",
+            "colorValue": "#0000FF"
+        },
+        {
+            "colorId": 3,
+            "colorName":"Yellow",
+            "colorValue": "#FFFF00"
+        },
+        {
+            "colorId": 4,
+            "colorName":"Purple",
+            "colorValue": "#800080"
+        },
+        {
+            "colorId": 5,
+            "colorName":"Pink",
+            "colorValue": "#FFC0CB"
+        }
+    ]
+}

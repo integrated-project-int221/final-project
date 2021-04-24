@@ -1,4 +1,4 @@
-package com.example.project.controller;
+package com.example.project.contrller;
 import com.example.project.model.Colors;
 import com.example.project.model.Products;
 import com.example.project.repositories.ColorRepositories;

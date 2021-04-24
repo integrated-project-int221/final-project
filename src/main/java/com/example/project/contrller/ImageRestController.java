@@ -1,4 +1,4 @@
-package com.example.project.controller;
+package com.example.project.contrller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;

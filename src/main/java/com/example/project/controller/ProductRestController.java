@@ -1,4 +1,5 @@
-package com.example.project.contrller;
+package com.example.project.controller;
+
 import com.example.project.model.Colors;
 import com.example.project.model.Products;
 import com.example.project.repositories.ColorRepositories;
@@ -19,24 +20,23 @@ public class ProductRestController {
     private ProductRepositories productRepositories;
 
 
-
     @GetMapping("/items")
-    public List<Products> getAllProduct(){
+    public List<Products> getAllProduct() {
         return productRepositories.findAll();
     }
 
     @GetMapping("/colors")
-    public  List<Colors> getAllColorProduct(){
+    public List<Colors> getAllColorProduct() {
         return colorRepositories.findAll();
     }
 
     @GetMapping("/items/{id}")
-    public Products itemByID(@PathVariable Long id){
+    public Products itemByID(@PathVariable Long id) {
         return productRepositories.findById(id).orElse(null);
     }
 
     @GetMapping("/colors/{id}")
-    public Colors ColorByID(@PathVariable Long id){
+    public Colors ColorByID(@PathVariable Long id) {
         return colorRepositories.findById(id).orElse(null);
     }
 

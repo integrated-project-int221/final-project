@@ -1,4 +1,4 @@
-package com.example.project.contrller;
+package com.example.project.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PageController {
 
     @GetMapping("/")
-    public String getHome(){
+    public String getHome() {
         return "Test Deploy SpringBoot RestAPI";
     }
 

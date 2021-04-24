@@ -1,4 +1,4 @@
-package com.example.project.contrller;
+package com.example.project.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -16,7 +16,7 @@ public class ImageRestController {
     String FILE_DIRECTORY;
 
     @GetMapping("/get/{filename:.+}")
-    public ResponseEntity<byte[]> getImages(@PathVariable("filename")String filename) throws IOException {
+    public ResponseEntity<byte[]> getImages(@PathVariable("filename") String filename) throws IOException {
         System.out.println(filename);
         FileInputStream fileInputStream = new FileInputStream("images\\" + filename);
         byte[] images = fileInputStream.readAllBytes();
@@ -24,8 +24,8 @@ public class ImageRestController {
     }
 
     @PostMapping("/upload")
-    public MultipartFile imageUpload(@RequestParam("File")MultipartFile file) throws IOException {
-        File imageFile = new File(System.getProperty("user.dir")+FILE_DIRECTORY+file.getOriginalFilename());
+    public MultipartFile imageUpload(@RequestParam("File") MultipartFile file) throws IOException {
+        File imageFile = new File(System.getProperty("user.dir") + FILE_DIRECTORY + file.getOriginalFilename());
         imageFile.createNewFile();
         FileOutputStream fos = new FileOutputStream(imageFile);
         fos.write(file.getBytes());

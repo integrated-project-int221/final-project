@@ -8,18 +8,17 @@ import javax.persistence.*;
 
 @Entity
 public class Brands {
-        @Getter
-        @Setter
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "brandid")
-        private long brandid;
+    @Getter
+    @Setter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "brandid")
+    private long brandid;
 
-     @Getter
-     @Setter
-     @Column(name = "brandname")
-     private String brandname;
-
+    @Getter
+    @Setter
+    @Column(name = "brandname")
+    private String brandname;
 
 
 }

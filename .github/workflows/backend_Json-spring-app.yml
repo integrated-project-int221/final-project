@@ -49,5 +49,5 @@ jobs:
       with:
         app-name: 'Json-spring-app'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ff011e36ae354b7cad9743f50d796a68 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b6aafe33e3054329a65f8126c5b60537 }}
         package: '*.jar'

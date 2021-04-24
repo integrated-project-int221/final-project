@@ -17,6 +17,11 @@ public class ProductRestController {
     @Autowired
     private ProductRepositories productRepositories;
 
+    @GetMapping("/")
+        public String getHome(){
+        return "home";
+    }
+
     @GetMapping("/items")
     public List<Products> getAllProduct(){
         return productRepositories.findAll();

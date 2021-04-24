@@ -8,7 +8,10 @@
           :key="product.id"
           :product="product"
         ></productList>
-        <pre>{{ productResults }}</pre>
+        <!-- <pre>{{ productResults }}</pre> -->
+      </div>
+      <div>
+        <p class="text-xl font-semibold">&#60; 1 &#62;</p>
       </div>
     </div>
   </div>

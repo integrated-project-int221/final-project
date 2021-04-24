@@ -32,47 +32,51 @@
                         type="file"
                         accept="image/*"
                         @change="previewImage"
-                        class="hidden form-control-file "
+                        class="hidden form-control-file"
                         id="my-file"
                       />
                     </label>
                   </template>
 
                   <template v-if="preview">
-                      <div class="border-2 h-64 w-64 border-blue-800 rounded-lg shadow-lg">
-                        <span>
-                          <img
-                            :src="preview"
-                            class="w-full h-full flex items-center justify-center object-cover object-center m-auto rounded-lg"
-                          />
-                        </span>
-                      </div>
-                      <label
-                        class="flex flex-col items-center px-3 py-1 mt-2 bg-white text-blue rounded-lg shadow-lg tracking-wide  border border-blue cursor-pointer hover:bg-blue hover:text-white"
+                    <div
+                      class="border-2 h-64 w-64 border-blue-800 rounded-lg shadow-lg"
+                    >
+                      <span>
+                        <img
+                          :src="preview"
+                          class="w-full h-full flex items-center justify-center object-cover object-center m-auto rounded-lg"
+                        />
+                      </span>
+                    </div>
+                    <label
+                      class="flex flex-col items-center px-3 py-1 mt-2 bg-white text-blue rounded-lg shadow-lg tracking-wide border border-blue cursor-pointer hover:bg-blue hover:text-white"
+                    >
+                      <svg
+                        class="w-6 h-6"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
                       >
-                        <svg
-                          class="w-6 h-6"
-                          fill="currentColor"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z"
-                          />
-                        </svg>
-                        <span class=" text-sm leading-normal"
-                          >Upload new Image</span
-                        >
-                        <input
+                        <path
+                          d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z"
+                        />
+                      </svg>
+                      <span class="text-sm leading-normal"
+                        >Upload new Image</span
+                      >
+                      <input
                         type="file"
                         accept="image/*"
                         @change="previewImage"
                         class="hidden form-control-file"
                         id="my-file"
                       />
-                      </label>
-                    <p class="mb-0">file name: {{ image.name }}</p>
-                    <p class="mb-0">size: {{ image.size / 1024 }}KB</p>
+                    </label>
+                    <p class="mb-0">file name: {{ formValue.image.name }}</p>
+                    <p class="mb-0">
+                      size: {{ formValue.image.size / 1024 }}KB
+                    </p>
                   </template>
                 </div>
               </div>
@@ -80,6 +84,7 @@
           </div>
 
           <div class="flex justify-between mb-3">
+            <!--Product Names input-->
             <div>
               <base-input
                 v-model="formValue.productname"
@@ -87,22 +92,26 @@
                 type="text"
               ></base-input>
             </div>
-            <div class="flex flex-row mb-3 ">
+
+            <!--Brands input-->
+            <div class="flex flex-row mb-3">
               <div>
                 <label>Select a Brand</label>
-                <select class="field">
-                  <option selected disabled hidden value="">
-                    Please select one
+                <select class="field" v-model="formValue.brands">
+                  <option value="" hidden disabled selected>Please select one</option>
+                  <option
+                    v-for="option in brandsResults"
+                    :value="option"
+                    :key="option"
+                    :selected="option === formValue.brands"
+                  >
+                    {{ option.brandName }}
                   </option>
-                  <option value="Apple">Apple</option>
-                  <option value="Samsung">Samsung</option>
-                  <option value="Realme">Realme</option>
-                  <option value="Xiaome">Xiaome</option>
                 </select>
               </div>
             </div>
           </div>
-
+          <!--Price input-->
           <div class="flex justify-between mb-3">
             <div>
               <label>Price</label>
@@ -117,29 +126,45 @@
               />
               $
             </div>
+
+            <!--Colors input-->
             <div class="flex flex-row mb-3">
               <div class="mx-3">
                 <label>Select Product Color(s)</label>
               </div>
-              <div class="grid grid-cols-2 gap-2">
+              <div class="grid grid-cols-3 gap-2">
                 <div v-for="option in colorsResults" :key="option">
-                  <input
-                    v-model="formValue.colors"
-                    type="checkbox"
-                    :id="option"
-                    :value="option"
-                  />
                   <label
-                    class="p-1"
+                    class="label-block p-1 cursor-pointer block h-6 w-6 border border-gray-400 rounded-lg relative"
                     :for="option.id"
                     :style="{ 'background-color': option.colorValue }"
-                    >{{ option.colorName }}</label
                   >
+                    <input
+                      v-model="formValue.colors"
+                      type="checkbox"
+                      :id="option.id"
+                      :value="option"
+                      class="hidden"
+                    />
+                  </label>
                 </div>
               </div>
             </div>
           </div>
+          <!--Date input-->
+          <div class="flex flex-col mb-3">
+            <form>
+              <label for="date">Date </label>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                v-model="formValue.date"
+              />
+            </form>
+          </div>
 
+          <!--Description input-->
           <div class="flex flex-col mb-3">
             <label>Description</label>
             <textarea
@@ -171,27 +196,29 @@
 export default {
   data() {
     return {
+      brandsResults: [],
       colorsResults: [],
-      // productResults: [],
       formValue: {
         productname: "",
         description: "",
         price: "",
+        date: "",
+        brands: "",
         colors: [],
+        image: null,
       },
       preview: null,
-      image: null,
     };
   },
   methods: {
-    previewImage: function (event) {
+    previewImage(event) {
       var input = event.target;
       if (input.files) {
         var reader = new FileReader();
         reader.onload = (e) => {
           this.preview = e.target.result;
         };
-        this.image = input.files[0];
+        this.formValue.image = input.files[0];
         reader.readAsDataURL(input.files[0]);
       }
     },
@@ -200,7 +227,7 @@ export default {
       const data = await res.json();
       return data;
     },
-    async fetchBrandResult() {
+    async fetchBrandsResult() {
       const res = await fetch("http://localhost:4001/brands");
       const data = await res.json();
       return data;
@@ -208,16 +235,17 @@ export default {
   },
   async created() {
     this.colorsResults = await this.fetchColorsResult();
+    this.brandsResults = await this.fetchBrandsResult();
   },
 };
 </script>
 
 <style scoped>
-.p-image {
-  position: absolute;
-  top: 167px;
-  right: 30px;
-  color: #666666;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+input[type="date"] {
+  padding: 6px;
+  border: solid 1px #ccc;
+  --tw-border-opacity: 1;
+  border-color: rgba(37, 99, 235, var(--tw-border-opacity));
+  background-color: aquamarine;
 }
 </style>

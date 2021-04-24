@@ -4,9 +4,11 @@ import com.example.project.model.Products;
 import com.example.project.repositories.ColorRepositories;
 import com.example.project.repositories.ProductRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/products")
@@ -17,10 +19,7 @@ public class ProductRestController {
     @Autowired
     private ProductRepositories productRepositories;
 
-    @GetMapping("/")
-        public String getHome(){
-        return "home";
-    }
+
 
     @GetMapping("/items")
     public List<Products> getAllProduct(){

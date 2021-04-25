@@ -33,6 +33,7 @@ public class ProductRestController {
     @GetMapping("/items/{id}")
     public Products itemByID(@PathVariable Long id) {
         return productRepositories.findById(id).orElse(null);
+
     }
 
     @GetMapping("/colors/{id}")
@@ -40,5 +41,10 @@ public class ProductRestController {
         return colorRepositories.findById(id).orElse(null);
     }
 
+    @PostMapping("/add")
+    public Products createProduct(@RequestBody Products newProduct){
+         productRepositories.save(newProduct);
+        return newProduct;
+    }
 
 }

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +15,7 @@ public class Products {
     @Getter
     @Setter
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "prodcode")
     private long prodcode;
 
@@ -42,16 +43,17 @@ public class Products {
     @Getter
     @Setter
     @Column(name = "prodmanufactured")
-    private Date prodmanufactured;
+    private LocalDate prodmanufactured;
 
-
+    @Getter
+    @Setter
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
     })
     @JoinTable(name = "productcolor",
-            joinColumns = @JoinColumn(name = "colorid"),
-            inverseJoinColumns = @JoinColumn(name = "prodcode")
+            joinColumns = @JoinColumn(name = "prodcode"),
+            inverseJoinColumns = @JoinColumn(name = "colorid")
     )
     private List<Colors> productColor = new ArrayList<>();
 }

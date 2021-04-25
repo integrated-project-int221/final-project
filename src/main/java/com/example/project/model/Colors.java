@@ -13,7 +13,7 @@ public class Colors {
     @Id
     @Getter
     @Setter
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long colorid;
 
     @Getter

@@ -46,7 +46,7 @@
                 >
                   <div>
                     <span
-                      class="border border-black rounded-lg w-6 h-6 block cursor-pointer ml-1"
+                      class="border border-black rounded-md w-6 h-6 block cursor-pointer ml-1"
                       :style="{ 'background-color': eachColor.colorValue }"
                     ></span>
                   </div>
@@ -64,7 +64,7 @@
           </button>
           <button
             class="border border-black w-1/3 bg-red-200"
-            @click="deleteProduct"
+            @click="deleteReview(product.id)"
           >
             delete
           </button>
@@ -78,7 +78,7 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 
 export default {
   props: ["product"],
@@ -94,6 +94,16 @@ export default {
     deleteProduct() {
       alert('this is "Delete" button.');
     },
+    deleteReview(id) {
+      console.log(id)
+      axios
+        .delete(`http://localhost:4001/products/${id}`)
+        .then((response) => {
+          return response.data;
+        })
+        this.$emit("deleteReview", id)
+    },
+    
   },
 };
 </script>

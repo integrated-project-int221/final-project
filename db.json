@@ -1,160 +1,125 @@
 {
-    "products": [{
-            "id": 101,
-            "productname": "Cashew",
-            "price": 32.99,
-            "date": "",
-            "colors": [{
-                    "colorId": 1,
-                    "colorValue": "#FF0000"
-                },
-                {
-                    "colorId": 2,
-                    "colorValue": "#0000FF"
-                },
-                {
-                    "colorId": 3,
-                    "colorValue": "#FFFF00"
-                }
-            ]
-        },
+  "products": [
+    {
+      "productname": "KakaJJ",
+      "description": "กำ",
+      "price": 5000,
+      "date": "2021-04-27",
+      "brands": {
+        "id": 1,
+        "brandName": "Apple"
+      },
+      "colors": [],
+      "image": {},
+      "id": 108
+    },
+    {
+      "productname": "Tein",
+      "description": "tet des",
+      "price": 0.01,
+      "date": "2021-04-01",
+      "brands": {
+        "id": 2,
+        "brandName": "Samsung"
+      },
+      "colors": [
         {
-            "id": 102,
-            "productname": "Kobkieaw Almond",
-            "price": 28.99,
-            "date": "",
-            "colors": [{
-                    "colorId": 1,
-                    "colorValue": "#FF0000"
-                },
-                {
-                    "colorId": 2,
-                    "colorValue": "#0000FF"
-                },
-                {
-                    "colorId": 4,
-                    "colorValue": "#800080"
-                }
-            ]
-        },
-        {
-            "id": 103,
-            "productname": "Kobkieaw Cashew",
-            "price": 15.99,
-            "date": "",
-            "colors": [{
-                    "colorId": 1,
-                    "colorValue": "#FF0000"
-                },
-                {
-                    "colorId": 4,
-                    "colorValue": "#800080"
-                },
-                {
-                    "colorId": 5,
-                    "colorValue": "#FFC0CB"
-                }
-            ]
-
-        },
-        {
-            "id": 104,
-            "productname": "Sticker",
-            "price": 24.99,
-            "date": "",
-            "colors": [{
-                    "colorId": 1,
-                    "colorValue": "#FF0000"
-                },
-                {
-                    "colorId": 2,
-                    "colorValue": "#0000FF"
-                },
-                {
-                    "colorId": 3,
-                    "colorValue": "#FFFF00"
-                }
-            ]
-        },
-        {
-            "id": 105,
-            "productname": "Cashew Big Size",
-            "price": 12.99,
-            "date": "",
-            "colors": [{
-                    "colorId": 1,
-                    "colorValue": "#FF0000"
-                },
-                {
-                    "colorId": 2,
-                    "colorValue": "#0000FF"
-                },
-                {
-                    "colorId": 4,
-                    "colorValue": "#800080"
-                }
-            ]
-        },
-        {
-            "id": 106,
-            "productname": "Kobkieaw",
-            "price": 50.25,
-            "date": "",
-            "colors": [{
-                    "colorId": 3,
-                    "colorValue": "#FFFF00"
-                },
-                {
-                    "colorId": 4,
-                    "colorValue": "#800080"
-                },
-                {
-                    "colorId": 5,
-                    "colorValue": "#FFC0CB"
-                }
-            ]
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
         }
-    ],
-    "brands": [{
-            "id": 1,
-            "brandName": "Apple"
-        },
-        {
-            "id": 2,
-            "brandName": "Samsung"
-        },
-        {
-            "id": 3,
-            "brandName": "Realme"
-        },
-        {
-            "id": 4,
-            "brandName": "Xiaome"
-        }
-    ],
-    "colors": [{
-            "colorId": 1,
-            "colorName":"Red",
-            "colorValue": "#FF0000"
-        }, {
-            "colorId": 2,
-            "colorName":"Blue",
-            "colorValue": "#0000FF"
-        },
-        {
-            "colorId": 3,
-            "colorName":"Yellow",
-            "colorValue": "#FFFF00"
-        },
-        {
-            "colorId": 4,
-            "colorName":"Purple",
-            "colorValue": "#800080"
-        },
-        {
-            "colorId": 5,
-            "colorName":"Pink",
-            "colorValue": "#FFC0CB"
-        }
-    ]
+      ],
+      "image": "2ถุงต้นไม้.jpg",
+      "id": 109
+    },
+    {
+      "productname": "Test PIC",
+      "description": "",
+      "price": 0,
+      "date": "",
+      "brands": "",
+      "colors": [],
+      "image": "db_erdiagram.png",
+      "id": 110
+    },
+    {
+      "productname": "",
+      "description": "",
+      "price": 0,
+      "date": "",
+      "brands": "",
+      "colors": [],
+      "image": "logojj.png",
+      "id": 111
+    },
+    {
+      "productname": "",
+      "description": "",
+      "price": 0,
+      "date": "",
+      "brands": "",
+      "colors": [],
+      "image": "cashew-nuts-967650_1920.jpg",
+      "id": 112
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "brandName": "Apple"
+    },
+    {
+      "id": 2,
+      "brandName": "Samsung"
+    },
+    {
+      "id": 3,
+      "brandName": "Realme"
+    },
+    {
+      "id": 4,
+      "brandName": "Xiaome"
+    }
+  ],
+  "colors": [
+    {
+      "colorId": 1,
+      "colorName": "Red",
+      "colorValue": "#FF0000"
+    },
+    {
+      "colorId": 2,
+      "colorName": "Blue",
+      "colorValue": "#0000FF"
+    },
+    {
+      "colorId": 3,
+      "colorName": "Yellow",
+      "colorValue": "#FFFF00"
+    },
+    {
+      "colorId": 4,
+      "colorName": "Purple",
+      "colorValue": "#800080"
+    },
+    {
+      "colorId": 5,
+      "colorName": "Pink",
+      "colorValue": "#FFC0CB"
+    }
+  ],
+  "images": [
+    {
+      "File": "logojj.png",
+      "id": 1
+    },
+    {
+      "File": {},
+      "id": 2
+    },
+    {
+      "File": {},
+      "id": 3
+    }
+  ]
 }

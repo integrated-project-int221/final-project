@@ -7,6 +7,7 @@
           v-for="product in productResults"
           :key="product.id"
           :product="product"
+          @deleteReview="deleteArray"
         ></productList>
         <!-- <pre>{{ productResults }}</pre> -->
       </div>
@@ -36,6 +37,23 @@ export default {
       const data = await res.json();
       return data;
     },
+    deleteArray(id) {
+      this.productResults = this.productResults.filter((product) => {
+        return product.id !== id;
+      });
+    },
+    // deleteReview(id) {
+    //   console.log(id)
+    //   axios
+    //     .delete(`http://localhost:4001/products/${id}`)
+    //     .then((response) => {
+    //       return response.data;
+    //     })
+    //     // this.$emit("deleteReview", id)
+    //     this.productResults = this.productResults.filter((product) => {
+    //     return product.id !== id;
+    //   });
+    // },
   },
   async created() {
     this.productResults = await this.fetchProductResult();

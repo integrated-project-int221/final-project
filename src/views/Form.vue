@@ -193,15 +193,18 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
+      urlRegisterData: "http://localhost:4001/products",
       brandsResults: [],
       colorsResults: [],
       formValue: {
         productname: "",
         description: "",
-        price: "",
+        price: 0.0,
         date: "",
         brands: "",
         colors: [],
@@ -211,6 +214,24 @@ export default {
     };
   },
   methods: {
+    submit() {
+      axios
+        // .post(this.urlRegisterData, {
+        //   productname: this.formValue.productname,
+        //   description: this.formValue.description,
+        //   price: this.formValue.price,
+        //   date: this.formValue.date,
+        //   brands: this.formValue.brands,
+        //   colors: this.formValue.colors,
+        //   image: this.formValue.image.name,
+        // })
+        .post(`http://localhost:4001/images`, {
+          File: this.formValue.image,
+        })
+        .then((response) => {
+          console.log(response);
+        });
+    },
     previewImage(event) {
       var input = event.target;
       if (input.files) {
@@ -220,6 +241,7 @@ export default {
         };
         this.formValue.image = input.files[0];
         reader.readAsDataURL(input.files[0]);
+        console.log(event);
       }
     },
     async fetchColorsResult() {

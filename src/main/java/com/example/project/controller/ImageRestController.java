@@ -25,11 +25,13 @@ public class ImageRestController {
 
     @PostMapping("/upload")
     public MultipartFile imageUpload(@RequestParam("File") MultipartFile file) throws IOException {
-        File imageFile = new File(System.getProperty("user.dir") + FILE_DIRECTORY + file.getOriginalFilename());
-        imageFile.createNewFile();
-        FileOutputStream fos = new FileOutputStream(imageFile);
-        fos.write(file.getBytes());
-        fos.close();
-        return file;
+//        String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+                File imageFile = new File(System.getProperty("user.dir") + FILE_DIRECTORY + file.getOriginalFilename());
+                imageFile.createNewFile();
+                FileOutputStream fos = new FileOutputStream(imageFile);
+                fos.write(file.getBytes());
+                fos.close();
+                return file;
+
     }
 }

@@ -1,7 +1,9 @@
 package com.example.project.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,43 +12,39 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Products {
-    @Getter
-    @Setter
+
     @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "prodcode")
-    private long prodcode;
+    private long prodCode;
 
     @ManyToOne
     @JoinColumn(name = "bands_bandid", nullable = false)
-    @Getter
-    @Setter
     private Brands brands;
 
-    @Getter
-    @Setter
+
     @Column(name = "prodname")
-    private String prodname;
+    private String prodName;
 
-    @Getter
-    @Setter
+
     @Column(name = "proddescription")
-    private String proddescription;
+    private String prodDescription;
 
-    @Getter
-    @Setter
+
     @Column(name = "price")
     private double price;
 
-    @Getter
-    @Setter
-    @Column(name = "prodmanufactured")
-    private LocalDate prodmanufactured;
 
-    @Getter
-    @Setter
+    @Column(name = "prodmanufactured")
+    private LocalDate prodManufactured;
+
+
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE

@@ -1,28 +1,29 @@
 package com.example.project.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Colors {
     @Id
-    @Getter
-    @Setter
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long colorid;
+    private long colorId;
 
-    @Getter
-    @Setter
-    private String colorname;
 
-    @Getter
-    @Setter
-    private String colorvalue;
+    private String colorName;
+
+
+    private String colorValue;
 
 
 }

@@ -13,8 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 public class ProductRestController {
-    @Autowired
-    private ColorRepositories colorRepositories;
+
 
     @Autowired
     private ProductRepositories productRepositories;
@@ -25,10 +24,7 @@ public class ProductRestController {
         return productRepositories.findAll();
     }
 
-    @GetMapping("/colors")
-    public List<Colors> getAllColorProduct() {
-        return colorRepositories.findAll();
-    }
+
 
     @GetMapping("/items/{id}")
     public Products itemByID(@PathVariable Long id) {
@@ -36,15 +32,18 @@ public class ProductRestController {
 
     }
 
-    @GetMapping("/colors/{id}")
-    public Colors ColorByID(@PathVariable Long id) {
-        return colorRepositories.findById(id).orElse(null);
-    }
+
 
     @PostMapping("/add")
     public Products createProduct(@RequestBody Products newProduct){
          productRepositories.save(newProduct);
         return newProduct;
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteProduct(@PathVariable Long id){
+        productRepositories.deleteById(id);
+    }
+
 
 }

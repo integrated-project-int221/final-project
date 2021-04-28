@@ -1,66 +1,192 @@
 {
   "products": [
     {
-      "productname": "KakaJJ",
-      "description": "กำ",
-      "price": 5000,
+      "productname": "Guitar1",
+      "description": "The Best Guitar",
+      "price": 2500,
       "date": "2021-04-27",
       "brands": {
         "id": 1,
         "brandName": "Apple"
       },
-      "colors": [],
-      "image": {},
-      "id": 108
-    },
-    {
-      "productname": "Tein",
-      "description": "tet des",
-      "price": 0.01,
-      "date": "2021-04-01",
-      "brands": {
-        "id": 2,
-        "brandName": "Samsung"
-      },
       "colors": [
+        {
+          "colorId": 4,
+          "colorName": "Purple",
+          "colorValue": "#800080"
+        },
+        {
+          "colorId": 2,
+          "colorName": "Blue",
+          "colorValue": "#0000FF"
+        },
         {
           "colorId": 1,
           "colorName": "Red",
           "colorValue": "#FF0000"
         }
       ],
-      "image": "2ถุงต้นไม้.jpg",
-      "id": 109
+      "image": "guitar1.jpeg",
+      "id": 5
     },
     {
-      "productname": "Test PIC",
-      "description": "",
-      "price": 0,
-      "date": "",
-      "brands": "",
-      "colors": [],
-      "image": "db_erdiagram.png",
-      "id": 110
+      "productname": "Guitar2",
+      "description": "The Best One Guitar.",
+      "price": 3000,
+      "date": "2021-04-24",
+      "brands": {
+        "id": 1,
+        "brandName": "Apple"
+      },
+      "colors": [
+        {
+          "colorId": 5,
+          "colorName": "Pink",
+          "colorValue": "#FFC0CB"
+        },
+        {
+          "colorId": 3,
+          "colorName": "Yellow",
+          "colorValue": "#FFFF00"
+        },
+        {
+          "colorId": 2,
+          "colorName": "Blue",
+          "colorValue": "#0000FF"
+        }
+      ],
+      "image": "guitar2.jpg",
+      "id": 6
     },
     {
-      "productname": "",
-      "description": "",
-      "price": 0,
-      "date": "",
-      "brands": "",
-      "colors": [],
-      "image": "logojj.png",
-      "id": 111
+      "productname": "Guitar3",
+      "description": "The Fantastic Guitar.",
+      "price": 3200,
+      "date": "2021-04-15",
+      "brands": {
+        "id": 3,
+        "brandName": "Realme"
+      },
+      "colors": [
+        {
+          "colorId": 2,
+          "colorName": "Blue",
+          "colorValue": "#0000FF"
+        },
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        }
+      ],
+      "image": "guitar3.jpg",
+      "id": 7
     },
     {
-      "productname": "",
-      "description": "",
-      "price": 0,
-      "date": "",
-      "brands": "",
-      "colors": [],
-      "image": "cashew-nuts-967650_1920.jpg",
-      "id": 112
+      "productname": "AAAAA",
+      "description": "des",
+      "price": 100,
+      "date": "2021-04-01",
+      "brands": {
+        "id": 1,
+        "brandName": "Apple"
+      },
+      "colors": [
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 4,
+          "colorName": "Purple",
+          "colorValue": "#800080"
+        },
+        {
+          "colorId": 5,
+          "colorName": "Pink",
+          "colorValue": "#FFC0CB"
+        }
+      ],
+      "image": "teammate2.png",
+      "id": 9
+    },
+    {
+      "productname": "Teammate2",
+      "description": "des",
+      "price": 500,
+      "date": "2021-04-02",
+      "brands": {
+        "id": 3,
+        "brandName": "Realme"
+      },
+      "colors": [
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 4,
+          "colorName": "Purple",
+          "colorValue": "#800080"
+        }
+      ],
+      "image": "teammate1.jpg",
+      "id": 10
+    },
+    {
+      "productname": "product3",
+      "description": "des2",
+      "price": 700,
+      "date": "2021-04-30",
+      "brands": {
+        "id": 4,
+        "brandName": "Xiaome"
+      },
+      "colors": [
+        {
+          "colorId": 2,
+          "colorName": "Blue",
+          "colorValue": "#0000FF"
+        }
+      ],
+      "image": "Product_Lg_Type.jpg",
+      "id": 11
+    },
+    {
+      "productname": "TestPic1",
+      "description": "des",
+      "price": 800,
+      "date": "2021-04-08",
+      "brands": {
+        "id": 3,
+        "brandName": "Realme"
+      },
+      "colors": [
+        {
+          "colorId": 2,
+          "colorName": "Blue",
+          "colorValue": "#0000FF"
+        },
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 4,
+          "colorName": "Purple",
+          "colorValue": "#800080"
+        },
+        {
+          "colorId": 5,
+          "colorName": "Pink",
+          "colorValue": "#FFC0CB"
+        }
+      ],
+      "image": "teammate1.jpg",
+      "id": 12
     }
   ],
   "brands": [

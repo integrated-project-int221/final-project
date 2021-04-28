@@ -22,7 +22,7 @@ public class ColorRestController {
     }
 
     @GetMapping("/{id}")
-    public Colors colorByID(@PathVariable Long id) {
+    public Colors colorByID(@PathVariable Integer id) {
         return colorRepositories.findById(id).orElse(null);
     }
 

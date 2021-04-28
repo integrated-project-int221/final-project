@@ -19,9 +19,9 @@ import java.util.List;
 public class Products {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "prodcode")
-    private long prodCode;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "prodcode", updatable = false,nullable = false)
+    private Integer prodCode;
 
     @ManyToOne
     @JoinColumn(name = "bands_bandid", nullable = false)
@@ -43,6 +43,8 @@ public class Products {
     @Column(name = "prodmanufactured")
     private LocalDate prodManufactured;
 
+    @Column(name = "imagename")
+    private String imageName;
 
     @ManyToMany(cascade = {
             CascadeType.PERSIST,

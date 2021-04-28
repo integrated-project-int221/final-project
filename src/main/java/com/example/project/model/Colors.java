@@ -5,10 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,13 +14,14 @@ import javax.persistence.Id;
 @Entity
 public class Colors {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long colorId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="colorid" , updatable = false,nullable = false)
+    private Integer colorId;
 
-
+    @Column(name = "colorname")
     private String colorName;
 
-
+    @Column(name= "colorvalue")
     private String colorValue;
 
 

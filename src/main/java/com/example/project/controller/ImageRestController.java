@@ -28,7 +28,7 @@ public class ImageRestController {
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(images);
     }
     @PostMapping("/upload/{id}")
-    public MultipartFile imageUpload(@RequestParam("Pic") MultipartFile file, @PathVariable Integer id) throws IOException {
+    public MultipartFile imageUpload(@RequestParam("File") MultipartFile file, @PathVariable Integer id) throws IOException {
         String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
                 File imageFile = new File(System.getProperty("user.dir") + FILE_DIRECTORY + productRepositories.findById(id).get().getProdName() + fileType);
                 imageFile.createNewFile();

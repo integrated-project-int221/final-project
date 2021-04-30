@@ -78,8 +78,9 @@
       style="background: rgba(0, 0, 0, 0.7)"
       v-show="openModal"
     >
+      <!--modal-->
       <div
-        class="border border-blue-500 shadow-lg modal-container bg-white w-4/12 md:max-w-11/12 mx-auto rounded-xl shadow-lg z-50 overflow-y-auto"
+        class="border border-blue-500 shadow-lg modal-container bg-white md:max-w-11/12 mx-auto rounded-xl shadow-lg z-50 overflow-y-auto"
       >
         <div class="modal-content py-4 text-left px-6">
           <!--Title-->
@@ -106,20 +107,16 @@
           </div>
           <!--Body-->
           <div class="my-5 mr-5 ml-5 flex">
-            <form>
-              <div>
-                <div class="flex justify-between mb-3">
-                  <!--Product Names input-->
-                  <div class="">
-                    <base-input
-                      label="Name"
-                      type="text"
-                    ></base-input>{{product.productname}}
-                  </div>
-                </div>
-
-              </div>
-            </form>
+            
+          <form-input
+           :oldproductname = product.productname
+            :olddescription = product.description
+            :oldprice = product.price
+            :olddate="product.date"
+            :oldbrands="product.brands"
+            :oldcolors="product.colors"
+            >
+          </form-input>
           </div>
           <!--Footer-->
         </div>
@@ -127,12 +124,15 @@
     </div>
     <!--ending modal-->
   </div>
+  <!-- <pre>show {{ product }}</pre> -->
 </template>
 
 <script>
+import FormInput from "../components/FormInput.vue";
 import axios from "axios";
 
 export default {
+  components: { FormInput },
   props: ["product"],
   data() {
     return {
@@ -161,7 +161,6 @@ export default {
       alert('this is "Delete" button.');
       this.$emit("deleteReview", id);
     },
-
   },
 };
 </script>

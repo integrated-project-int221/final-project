@@ -1,7 +1,9 @@
 <template>
   <div class="container border border-black">
     <div>Add product</div>
-    <form-input></form-input>
+    <!--Add new Product-->
+    <form-input>
+    </form-input>
   </div>
 </template>
 

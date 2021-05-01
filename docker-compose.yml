@@ -1,0 +1,7 @@
+version: "3"
+services:
+  spa.project:
+    image: spa.project
+    ports:
+       - "3000:8080"
+

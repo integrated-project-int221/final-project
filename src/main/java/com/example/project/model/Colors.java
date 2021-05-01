@@ -12,6 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "colors")
 public class Colors {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

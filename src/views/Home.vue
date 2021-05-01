@@ -2,6 +2,7 @@
   <div class="home">
     <div class="container">
       <h2>Product List - DB JSON file</h2>
+      <!-- <pre>{{ productResults }}</pre> -->
       <!-- <div class="grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-4"> -->
       <!-- <div class="grid grid-cols-3 gap-3"></div> -->
 
@@ -57,22 +58,12 @@ export default {
       productResults: [],
       brandsResults: [],
       colorsResults: [],
-      formValue: {
-        productname: "",
-        description: "",
-        price: 0.0,
-        date: "",
-        brands: "",
-        colors: [],
-        image: null,
-      },
-      preview: null,
       openModal: false
     };
   },
   methods: {
     async fetchProductResult() {
-      const res = await fetch("http://localhost:4001/products");
+      const res = await fetch("http://localhost:4001/products/");
       const data = await res.json();
       return data;
     },

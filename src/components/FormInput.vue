@@ -1,4 +1,5 @@
 <template>
+
   <div
     class="flex flex-row bg-white rounded-lg border border-gray-200 shadow-lg py-6 px-8"
   >
@@ -89,63 +90,42 @@
       </div>
       <div class="mt-2">
         <label class="block text-sm text-gray-600" for="brand">Brands</label>
-        <!-- <input
+        <select
+          id="brand"
           class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-          id="cus_email"
-          name="cus_email"
-          type="text"
-          required=""
-          placeholder="Your Email"
-          aria-label="Email"
-        /> -->
-        <select class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded">
-          <option>A</option>
-          <option>B</option>
-          <option>C</option>
-          <option>D</option>
-          <option>E</option>
+          v-model="editValue.brands"
+        >
+          <option value="" hidden disabled selected>Please select one</option>
+          <option
+            v-for="option in brandsResults"
+            :value="option"
+            :key="option"
+            :selected="option === editValue.brands"
+          >
+            {{ option.brandName }}
+          </option>
         </select>
       </div>
       <div class="mt-2">
-        <label class="block text-sm text-gray-600" for="cus_email"
-          >Color(s)</label
-        >
-        <ul class="flex flex-row">
-          <li class="mr-4 last:mr-0">
-            <span
-              class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300"
-            >
-              <button class="block w-6 h-6 bg-blue-900 rounded-full"></button>
-            </span>
-          </li>
-          <li class="mr-4 last:mr-0">
-            <span
-              class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300"
-            >
-              <a
-                href="#yellow"
-                class="block w-6 h-6 bg-yellow-500 rounded-full"
-              ></a>
-            </span>
-          </li>
-          <li class="mr-4 last:mr-0">
-            <span
-              class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300"
-            >
-              <a href="#red" class="block w-6 h-6 bg-red-500 rounded-full"></a>
-            </span>
-          </li>
-          <li class="mr-4 last:mr-0">
-            <span
-              class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300"
-            >
-              <a
-                href="#green"
-                class="block w-6 h-6 bg-green-500 rounded-full"
-              ></a>
-            </span>
-          </li>
-        </ul>
+        <label class="block text-sm text-gray-600" for="">Color(s)</label>
+        <div class="flex flex-row">
+          <label
+            v-for="option in colorsResults"
+            :key="option"
+            class="check-color block p-1 border-2 border-white hover:border-black rounded-full transition ease-in duration-300 w-6 h-6 bg-blue-900 rounded-full"
+            :for="option.id"
+            :style="{ 'background-color': option.colorValue }"
+            @click="toggleIsClicked"
+          >
+            <input
+              v-model="editValue.colors"
+              type="checkbox"
+              :id="option.id"
+              :value="option"
+              class="hidden"
+            />
+          </label>
+        </div>
       </div>
       <div class="inline-block mt-2 w-1/2 pr-1">
         <label class="block text-sm text-gray-600" for="cus_email">Date</label>
@@ -201,135 +181,25 @@
     </form>
   </div>
   <!-- <pre>Edit: {{ editValue }}</pre> -->
-  
-
-  <!-- <form class="">
-    <p class="text-gray-800 font-medium">Customer information</p>
-    <div class="">
-      <label class="block text-sm text-gray-00" for="cus_name">Name</label>
-      <input
-        class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-        id="cus_name"
-        name="cus_name"
-        type="text"
-        required=""
-        placeholder="Your Name"
-        aria-label="Name"
-      />
-    </div>
-    <div class="mt-2">
-      <label class="block text-sm text-gray-600" for="cus_email">Email</label>
-      <input
-        class="w-full px-5 py-4 text-gray-700 bg-gray-200 rounded"
-        id="cus_email"
-        name="cus_email"
-        type="text"
-        required=""
-        placeholder="Your Email"
-        aria-label="Email"
-      />
-    </div>
-    <div class="mt-2">
-      <label class="block text-sm text-gray-600" for="cus_email">Address</label>
-      <input
-        class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-        id="cus_email"
-        name="cus_email"
-        type="text"
-        required=""
-        placeholder="Street"
-        aria-label="Email"
-      />
-    </div>
-    <div class="mt-2">
-      <label class="hidden text-sm block text-gray-600" for="cus_email"
-        >City</label
-      >
-      <input
-        class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-        id="cus_email"
-        name="cus_email"
-        type="text"
-        required=""
-        placeholder="City"
-        aria-label="Email"
-      />
-    </div>
-    <div class="inline-block mt-2 w-1/2 pr-1">
-      <label class="hidden block text-sm text-gray-600" for="cus_email"
-        >Country</label
-      >
-      <input
-        class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-        id="cus_email"
-        name="cus_email"
-        type="text"
-        required=""
-        placeholder="Country"
-        aria-label="Email"
-      />
-    </div>
-    <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
-      <label class="hidden block text-sm text-gray-600" for="cus_email"
-        >Zip</label
-      >
-      <input
-        class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-        id="cus_email"
-        name="cus_email"
-        type="text"
-        required=""
-        placeholder="Zip"
-        aria-label="Email"
-      />
-    </div>
-    <p class="mt-4 text-gray-800 font-medium">Payment information</p>
-    <div class="">
-      <label class="block text-sm text-gray-600" for="cus_name">Card</label>
-      <input
-        class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-        id="cus_name"
-        name="cus_name"
-        type="text"
-        required=""
-        placeholder="Card Number MM/YY CVC"
-        aria-label="Name"
-      />
-    </div>
-    <div class="mt-4">
-      <button
-        class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-        type="submit"
-      >
-        $3.00
-      </button>
-    </div>
-  </form> -->
+  <!-- <pre> {{ brandsResults }} </pre> -->
 </template>
 
 <script>
 export default {
   props: {
-    oldproductname: {default: ""},
+    oldproductname: { default: "" },
     olddescription: { default: "" },
     oldprice: { default: 0.0 },
     olddate: { default: "" },
     oldbrands: { default: "" },
-    oldcolors: { default: null },
-    oldimages: { default: null }
+    oldcolors: { default: [] },
+    oldimages: { default: "Product_Lg_Type.jpg" },
   },
   data() {
     return {
       //never use this.
-      formValue: {
-        productname: "",
-        description: "",
-        price: 0.0,
-        date: "",
-        brands: "",
-        colors: [],
-        image: null,
-      },
+      colorsResults: [],
+      brandsResults: [],
       editValue: {
         productname: this.oldproductname,
         description: this.olddescription,
@@ -340,10 +210,13 @@ export default {
         image: this.oldimages,
       },
       preview: null,
+      isClicked: false
     };
   },
   methods: {
-    toggleColor() {},
+    toggleIsClicked: function () {
+    this.isClicked = !this.isClicked
+  },
     previewImage(event) {
       var input = event.target;
       if (input.files) {
@@ -351,15 +224,48 @@ export default {
         reader.onload = (e) => {
           this.preview = e.target.result;
         };
-        this.editValue.image = input.files[0];
+        this.editValue.image = input.files[0].name;
         reader.readAsDataURL(input.files[0]);
         console.log(event);
       }
     },
-    submit(){
-      this.$emit("updateReview", this.editValue)
-      alert("Value send" + this.editValue)
-    }
+    submit() {
+      const formInputValue = this.editValue
+      // this.editValue.productname = ""
+      //   this.editValue.description =""
+      //   this.editValue.price = 0.0
+      //   this.editValue.date = ""
+      //   this.editValue.brands = ""
+      //   this.editValue.colors = []
+      //   this.editValue.image = ""
+
+      alert("Value send" + this.editValue);
+      this.$emit("form-submit", formInputValue);
+    },
+    async fetchColorsResult() {
+      // const res = await fetch("http://localhost:4001/colors/");
+      // const res = await fetch("http://localhost//colors");
+      const res = await fetch("http://52.187.35.188:3000/colors");
+      const data = await res.json();
+      return data;
+    },
+    async fetchBrandsResult() {
+      // const res = await fetch("http://localhost:4001/brands/");
+      // const res = await fetch("http://localhost//brands");
+      const res = await fetch("http://52.187.35.188:3000/brands");
+      const data = await res.json();
+      return data;
+    },
+  },
+  async created() {
+    this.colorsResults = await this.fetchColorsResult();
+    this.brandsResults = await this.fetchBrandsResult();
   },
 };
 </script>
+
+<style scoped>
+.checkbox:checked:before {
+  background-color: green;
+}
+</style>

@@ -108,7 +108,7 @@
           "colorValue": "#FFC0CB"
         }
       ],
-      "image": "guitar4.jpg",
+      "image": "Product_Lg_Type.jpg",
       "id": 9
     },
     {
@@ -187,6 +187,59 @@
       ],
       "image": "Product_Lg_Type.jpg",
       "id": 12
+    },
+    {
+      "productname": "AAAAA",
+      "description": "des",
+      "price": 400,
+      "date": "2021-04-28",
+      "brands": {
+        "id": 2,
+        "brandName": "Samsung"
+      },
+      "colors": [
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 2,
+          "colorName": "Blue",
+          "colorValue": "#0000FF"
+        },
+        {
+          "colorId": 3,
+          "colorName": "Yellow",
+          "colorValue": "#FFFF00"
+        }
+      ],
+      "image": "Product_Lg_Type.jpg",
+      "id": 13
+    },
+    {
+      "productname": "BBBBB",
+      "description": "des",
+      "price": 700,
+      "date": "2021-04-27",
+      "brands": {
+        "id": 1,
+        "brandName": "Apple"
+      },
+      "colors": [
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 2,
+          "colorName": "Blue",
+          "colorValue": "#0000FF"
+        }
+      ],
+      "image": "guitar1.jpeg",
+      "id": 14
     }
   ],
   "brands": [

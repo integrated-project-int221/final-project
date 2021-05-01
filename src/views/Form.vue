@@ -240,12 +240,12 @@ export default {
       }
     },
     async fetchColorsResult() {
-      const res = await fetch("http://localhost:4001/colors");
+      const res = await fetch("http://localhost///colors");
       const data = await res.json();
       return data;
     },
     async fetchBrandsResult() {
-      const res = await fetch("http://localhost:4001/brands");
+      const res = await fetch("http://localhost//brands");
       const data = await res.json();
       return data;
     },

@@ -107,16 +107,17 @@
           </div>
           <!--Body-->
           <div class="my-5 mr-5 ml-5 flex">
-            
-          <form-input
-           :oldproductname = product.productname
-            :olddescription = product.description
-            :oldprice = product.price
-            :olddate="product.date"
-            :oldbrands="product.brands"
-            :oldcolors="product.colors"
+            <form-input
+              :oldproductname="product.productname"
+              :olddescription="product.description"
+              :oldprice="product.price"
+              :olddate="product.date"
+              :oldbrands="product.brands"
+              :oldcolors="product.colors"
+              :oldimages="product.images"
+              @form-submit="editArray"
             >
-          </form-input>
+            </form-input>
           </div>
           <!--Footer-->
         </div>
@@ -138,8 +139,6 @@ export default {
     return {
       //productResults.productname -> "http://localhost:4001/images/get/{{productResults.productname}} -> [obj File]"
       // :src="require(`@/assets/${product.image}`)"
-      colorsResult: [],
-      preview: "logo.png",
       image: "",
       openModal: false,
     };
@@ -160,6 +159,10 @@ export default {
       });
       alert('this is "Delete" button.');
       this.$emit("deleteReview", id);
+    },
+    editArray(editData) {
+      // this.product = editData;
+      alert("Edit data" + editData.productname);
     },
   },
 };

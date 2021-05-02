@@ -125,7 +125,7 @@
     </div>
     <!--ending modal-->
   </div>
-  <!-- <pre>show {{ product }}</pre> -->
+  <!-- <pre>show {{ editData }}</pre> -->
 </template>
 
 <script>
@@ -134,11 +134,16 @@ import axios from "axios";
 
 export default {
   components: { FormInput },
-  props: ["product"],
+  props: {
+    product: {
+      default: "",
+    },
+  },
   data() {
     return {
       //productResults.productname -> "http://localhost:4001/images/get/{{productResults.productname}} -> [obj File]"
       // :src="require(`@/assets/${product.image}`)"
+      editData: this.product,
       image: "",
       openModal: false,
     };
@@ -160,9 +165,16 @@ export default {
       alert('this is "Delete" button.');
       this.$emit("deleteReview", id);
     },
-    editArray(editData) {
-      // this.product = editData;
-      alert("Edit data" + editData.productname);
+    editArray(editValue) {
+      let id = this.editData.id;
+      // this.editData = editValue;
+      axios
+        .put(`http://localhost:4001/products/${id}`,editValue)
+        .then((response) => {
+          console.log(response);
+        })
+        .then(this.$router.push("/"))
+      this.toggleEditModal();
     },
   },
 };

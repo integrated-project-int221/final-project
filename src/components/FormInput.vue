@@ -1,5 +1,4 @@
 <template>
-
   <div
     class="flex flex-row bg-white rounded-lg border border-gray-200 shadow-lg py-6 px-8"
   >
@@ -122,7 +121,7 @@
               type="checkbox"
               :id="option.id"
               :value="option"
-              class="hidden"
+              class=""
             />
           </label>
         </div>
@@ -172,11 +171,11 @@
         ></textarea>
       </div>
       <div class="mt-4">
-        <button
-          class="px-4 py-1 w-full text-white font-light tracking-wider bg-gray-900 rounded"
-        >
-          Submit
-        </button>
+          <button
+            class="px-4 py-1 w-full text-white font-light tracking-wider bg-gray-900 rounded"
+          >
+            Submit
+          </button>
       </div>
     </form>
   </div>
@@ -210,13 +209,13 @@ export default {
         image: this.oldimages,
       },
       preview: null,
-      isClicked: false
+      isClicked: false,
     };
   },
   methods: {
     toggleIsClicked: function () {
-    this.isClicked = !this.isClicked
-  },
+      this.isClicked = !this.isClicked;
+    },
     previewImage(event) {
       var input = event.target;
       if (input.files) {
@@ -230,29 +229,29 @@ export default {
       }
     },
     submit() {
-      const formInputValue = this.editValue
-      // this.editValue.productname = ""
-      //   this.editValue.description =""
-      //   this.editValue.price = 0.0
-      //   this.editValue.date = ""
-      //   this.editValue.brands = ""
-      //   this.editValue.colors = []
-      //   this.editValue.image = ""
+      const formInputValue = this.editValue;
+        this.editValue.productname = ""
+        this.editValue.description =""
+        this.editValue.price = 0.0
+        this.editValue.date = ""
+        this.editValue.brands = ""
+        this.editValue.colors = []
+        this.editValue.image = ""
 
       alert("Value send" + this.editValue);
       this.$emit("form-submit", formInputValue);
     },
     async fetchColorsResult() {
-      // const res = await fetch("http://localhost:4001/colors/");
+      const res = await fetch("http://localhost:4001/colors/");
       // const res = await fetch("http://localhost//colors");
-      const res = await fetch("http://52.187.35.188:3000/colors");
+      // const res = await fetch("http://52.187.35.188:3000/colors");
       const data = await res.json();
       return data;
     },
     async fetchBrandsResult() {
-      // const res = await fetch("http://localhost:4001/brands/");
+      const res = await fetch("http://localhost:4001/brands/");
       // const res = await fetch("http://localhost//brands");
-      const res = await fetch("http://52.187.35.188:3000/brands");
+      // const res = await fetch("http://52.187.35.188:3000/brands");
       const data = await res.json();
       return data;
     },
@@ -267,5 +266,9 @@ export default {
 <style scoped>
 .checkbox:checked:before {
   background-color: green;
+}
+input:checked {
+  height: 50px;
+  width: 50px;
 }
 </style>

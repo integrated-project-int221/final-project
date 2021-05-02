@@ -20,7 +20,6 @@
 }
 
 #app {
-  @apply font-serif;
 } 
 #nav a{
   @apply no-underline text-black  border-b-2 border-transparent hover:bg-gray-100 focus:bg-gray-200 uppercase tracking-wide font-bold text-lg p-3 mr-8;

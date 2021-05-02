@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "productname": "Guitar1",
+      "productname": "Guitar12345",
       "description": "The Best Guitar",
       "price": 2500,
       "date": "2021-04-27",
@@ -32,11 +32,11 @@
     {
       "productname": "Guitar2",
       "description": "The Best One Guitar.",
-      "price": 3000,
+      "price": 2450,
       "date": "2021-04-24",
       "brands": {
-        "id": 1,
-        "brandName": "Apple"
+        "id": 3,
+        "brandName": "Realme"
       },
       "colors": [
         {
@@ -45,14 +45,9 @@
           "colorValue": "#FFC0CB"
         },
         {
-          "colorId": 3,
-          "colorName": "Yellow",
-          "colorValue": "#FFFF00"
-        },
-        {
-          "colorId": 2,
-          "colorName": "Blue",
-          "colorValue": "#0000FF"
+          "colorId": 4,
+          "colorName": "Purple",
+          "colorValue": "#800080"
         }
       ],
       "image": "guitar2.jpg",
@@ -81,35 +76,6 @@
       ],
       "image": "guitar3.jpg",
       "id": 7
-    },
-    {
-      "productname": "AAAAA",
-      "description": "des",
-      "price": 100,
-      "date": "2021-04-01",
-      "brands": {
-        "id": 1,
-        "brandName": "Apple"
-      },
-      "colors": [
-        {
-          "colorId": 1,
-          "colorName": "Red",
-          "colorValue": "#FF0000"
-        },
-        {
-          "colorId": 4,
-          "colorName": "Purple",
-          "colorValue": "#800080"
-        },
-        {
-          "colorId": 5,
-          "colorName": "Pink",
-          "colorValue": "#FFC0CB"
-        }
-      ],
-      "image": "Product_Lg_Type.jpg",
-      "id": 9
     },
     {
       "productname": "Teammate2",
@@ -240,6 +206,54 @@
       ],
       "image": "guitar1.jpeg",
       "id": 14
+    },
+    {
+      "productname": "NewProduct",
+      "description": "test",
+      "price": 480,
+      "date": "2021-04-29",
+      "brands": {
+        "id": 1,
+        "brandName": "Apple"
+      },
+      "colors": [
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 2,
+          "colorName": "Blue",
+          "colorValue": "#0000FF"
+        }
+      ],
+      "image": "Product_Lg_Type.jpg",
+      "id": 15
+    },
+    {
+      "productname": "NewProduct",
+      "description": "des",
+      "price": 750,
+      "date": "2021-04-25",
+      "brands": {
+        "id": 3,
+        "brandName": "Realme"
+      },
+      "colors": [
+        {
+          "colorId": 2,
+          "colorName": "Blue",
+          "colorValue": "#0000FF"
+        },
+        {
+          "colorId": 3,
+          "colorName": "Yellow",
+          "colorValue": "#FFFF00"
+        }
+      ],
+      "image": "Product_Lg_Type.jpg",
+      "id": 16
     }
   ],
   "brands": [

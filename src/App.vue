@@ -3,13 +3,12 @@
     <div class="flex justify-between">
       <div class="ml-6 self-center">
         <span>
-          <router-link to="/">Logo </router-link>
+          <router-link to="/">Home </router-link>
         </span>
       </div>
       <div class="mr-6 self-center">
-        <router-link to="/">Home</router-link>
-        <router-link to="/about">About</router-link>
-        <router-link to="/form">Form</router-link>
+        <router-link to="/about">Team</router-link>
+        <!-- <router-link to="/form">Form</router-link> -->
         <router-link to="/addproduct">Add Product</router-link>
       </div>
     </div>

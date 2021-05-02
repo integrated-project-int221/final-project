@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin(origins="http://localhost:8081")
 @RestController
 @RequestMapping("/colors")
+@CrossOrigin(origins= {"http://localhost:8081"})
 public class ColorRestController {
     @Autowired
     private ColorRepositories colorRepositories;

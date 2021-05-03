@@ -25,7 +25,7 @@ public class ProductRestController {
 
 
 
-    @GetMapping("/items/{id}")
+    @GetMapping("/item/{id}")
     public Products itemByID(@PathVariable Integer id) {
         return productRepositories.findById(id).orElse(null);
     }

@@ -3,7 +3,6 @@ package com.example.project.controller;
 import com.example.project.model.Products;
 import com.example.project.repositories.ProductRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,7 +32,6 @@ public class ProductRestController {
 
     @PostMapping("/add")
     public Products createProduct(@RequestBody Products newProduct){
-        newProduct.setProdCode(1000);
          productRepositories.save(newProduct);
         return newProduct;
     }

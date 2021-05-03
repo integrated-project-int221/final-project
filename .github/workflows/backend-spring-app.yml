@@ -1,27 +1,22 @@
-name: Docker Builds
-
+name: Docker build image
 on:
   push:
     branches:
       - backend
-
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-        - name: Checkout code    
-        - uses: actions/checkout@v2
-          
-        - name: Login to GitHub Container Registry
-          uses: docker/login-action@v1
-          with:
-            registry: ghcr.io
-            username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}        
-        
-        - name: Build and push
-          uses: docker/build-push-action@v2
-          with:
-            push: true
-            tags: ghcr.io/tein1142/integrated-project-int221/final-project:backend
-
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ghcr.io/integrated-project-int221/final-project:backend

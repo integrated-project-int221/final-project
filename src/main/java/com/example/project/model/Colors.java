@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class Colors {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="colorid" , updatable = false,nullable = false)
+    @Column(name ="colorid" )
     private Integer colorId;
 
     @Column(name = "colorname")

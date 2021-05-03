@@ -15,8 +15,6 @@ export default {
   components: { FormInput },
   methods:{
     addProduct(newProduct){
-      alert("add Product "+newProduct)
-      alert("new Product " + newProduct.productname)
       axios
         .post("http://localhost:4001/products",newProduct
         // {

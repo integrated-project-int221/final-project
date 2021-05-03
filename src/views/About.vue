@@ -11,7 +11,7 @@
         <div class="max-w-sm rounded overflow-hidden shadow-xl cursor-pointer border-2 hover:border-gray-600" >
           <img class="max-w-sm w-full h-80 object-cover object-center" src="../assets/Teammate.jpg" alt="Sunset in the mountains">
           <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Jhon Smith</div>
+            <div class="font-bold text-xl mb-2">Guy</div>
             <p class=" text-base">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
             </p>
@@ -23,7 +23,7 @@
         <div class="max-w-sm rounded overflow-hidden shadow-xl cursor-pointer border-2 hover:border-gray-600">
           <img class="max-w-sm w-full max-h-80 object-cover object-center" src="../assets/Teamtien.jpg" alt="Sunset in the mountains">
           <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Martin Colde</div>
+            <div class="font-bold text-xl mb-2">Tien</div>
             <p class=" text-base">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
             </p>
@@ -33,9 +33,9 @@
           </div>
         </div>
         <div class="max-w-sm rounded overflow-hidden shadow-xl cursor-pointer border-2 hover:border-gray-600">
-          <img class="w-full h-80 object-cover object-center" src="../assets/logojj.png" alt="Sunset in the mountains">
+          <img class="w-full h-80 object-cover object-center" src="../assets/TeamTar.jpg" alt="Sunset in the mountains">
           <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Willam Dee</div>
+            <div class="font-bold text-xl mb-2">Tar</div>
             <p class=" text-base">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
             </p>

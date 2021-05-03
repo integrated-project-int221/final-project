@@ -56,11 +56,12 @@
           </span>
         </div>
         <div class="flex justify-around mt-5 mb-3 text-black">
-          <button
-            class="border border-black w-1/3 bg-blue-200"
-            @click="editProduct(product.id)"
-          >
-            edit
+          <button class="border border-black w-1/3 bg-blue-200">
+            <router-link
+              :to="{ name: 'EditProduct', params: { id: product.id } }"
+            >
+              edit
+            </router-link>
           </button>
           <button
             class="border border-black w-1/3 bg-red-200"
@@ -129,7 +130,7 @@
 </template>
 
 <script>
-import FormInput from "../components/FormInput.vue";
+import FormInput from "./FormInput.vue";
 import axios from "axios";
 
 export default {
@@ -152,28 +153,28 @@ export default {
     toggleEditModal() {
       this.openModal = !this.openModal;
     },
-    editProduct(id) {
-      this.toggleEditModal();
-      alert('this is "Edit" button.');
-      this.$emit("editReview", id);
+    editProduct() {
+      // this.$router.push("/editproduct");
+      // this.toggleEditModal();
+      // alert('this is "Edit" button.');
+      // this.$emit("editReview", id);
     },
     deleteReview(id) {
       console.log(id);
       axios.delete(`http://localhost:4001/products/${id}`).then((response) => {
         return response.data;
       });
-      alert('this is "Delete" button.');
       this.$emit("deleteReview", id);
     },
     editArray(editValue) {
       let id = this.editData.id;
       // this.editData = editValue;
       axios
-        .put(`http://localhost:4001/products/${id}`,editValue)
+        .put(`http://localhost:4001/products/${id}`, editValue)
         .then((response) => {
           console.log(response);
         })
-        .then(this.$router.push("/"))
+        .then(this.$router.push("/"));
       this.toggleEditModal();
     },
   },

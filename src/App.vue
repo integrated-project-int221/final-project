@@ -8,7 +8,6 @@
       </div>
       <div class="mr-6 self-center">
         <router-link to="/about">Team</router-link>
-        <!-- <router-link to="/form">Form</router-link> -->
         <router-link to="/addproduct">Add Product</router-link>
       </div>
     </div>

@@ -1,64 +1,59 @@
 <template>
   <div class="home">
     <div class="container">
-      <h2>Product List - DB JSON file</h2>
-      <!-- <pre>{{ productResults }}</pre> -->
-      <!-- <div class="grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-4"> -->
-      <!-- <div class="grid grid-cols-3 gap-3"></div> -->
+      <section
+        class="bg-image-slide w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right"
+        style="max-width: 1600px; height: 32rem"
+      >
+        <div class="container mx-auto">
+          <div
+            class="flex flex-col w-full lg:w-1/2 justify-center items-start px-6 tracking-wide"
+          >
+            <h1 class="text-black text-2xl my-4">
+              Stripy Zig Zag Jigsaw Pillow and Duvet Set
+            </h1>
+            <a
+              class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
+              href="#"
+              >products</a
+            >
+          </div>
+        </div>
+      </section>
+      <div class="flex justify-around">
+        <div>Products</div>
+        <div>
+          <button class="" @click="goProductList">show more>></button>
+        </div>
+      </div>
 
-      <!-- <button
-          class="absolute top-0 mt-32 left-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -ml-6 focus:outline-none focus:shadow-outline"
-        >
-          <span class="block" style="transform: scale(-1)">&#x279c;</span>
-        </button>
-        <button
-          class="absolute top-0 mt-32 right-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-indigo-600 hover:text-indigo-400 focus:text-indigo-400 -mr-6 focus:outline-none focus:shadow-outline"
-        >
-          <span class="block" style="transform: scale(1)">&#x279c;</span>
-        </button> -->
-
-      <carousel-list
-        ><productList
-          v-for="product in productResults"
-          :key="product.id"
-          :product="product"
-          @editReview="toggleEditModal"
-          @deleteReview="deleteArray"
-        ></productList
-      ></carousel-list>
-
-      <!-- <pre>{{ productResults }}</pre> -->
-      <!-- productResults.productname -> "http://localhost:4001/images/get/{{productResults.productname}} -> [obj File]" -->
-      <!-- </div> -->
-
-      <div>
-        <p class="text-xl font-semibold">&#60; 1 &#62;</p>
+      <!--product-->
+      <div class="flex items-center justify-around">
+        <div class="grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-4">
+          <product
+            v-for="product in productResults"
+            :key="product.id"
+            :product="product"
+            @deleteReview="deleteArray"
+          ></product>
+        </div>
       </div>
     </div>
-
-    <!--Modal Edit-->
-
-    
-    
   </div>
 </template>
 
 <script>
-import productList from "../components/ProductList.vue";
-import CarouselList from "../components/CarouselList.vue";
+import product from "../components/Product.vue";
 
 export default {
   name: "Home",
   components: {
-    productList,
-    CarouselList,
+    product,
   },
   data() {
     return {
       productResults: [],
-      brandsResults: [],
-      colorsResults: [],
-      openModal: false
+      openModal: false,
     };
   },
   methods: {
@@ -73,9 +68,13 @@ export default {
         return product.id !== id;
       });
     },
-    toggleEditModal(){
-      this.openModal = !this.openModal
-    }
+    editReview() {},
+    toggleEditModal() {
+      this.openModal = !this.openModal;
+    },
+    goProductList() {
+      this.$router.push("/productlist");
+    },
     // async fetchImageResult() {
     //   const res = await fetch("http://localhost:4001/images/get/"+{{productResults.productname}});
     //   const data = await res.json();
@@ -88,3 +87,8 @@ export default {
 };
 </script>
 
+<style scoped>
+.bg-image-slide {
+  background-image: url("../assets/HomeGuitar2.jpg");
+}
+</style>

@@ -123,6 +123,7 @@
               :value="option"
               class=""
             />
+            <!-- <span class="check-color block p-1 border-2 border-white hover:border-black rounded-full transition ease-in duration-300 w-6 h-6 bg-blue-900 rounded-full" :style="{ 'background-color': option.colorValue }"></span> -->
           </label>
         </div>
       </div>
@@ -179,13 +180,17 @@
       </div>
     </form>
   </div>
-  <!-- <pre>Edit: {{ editValue }}</pre> -->
-  <!-- <pre> {{ brandsResults }} </pre> -->
+  <pre>props attr Edit: {{ oldproductname }}</pre>
+  <pre>props :{{ testEditData }} </pre>
+  <pre>EditValue: {{ editValue }} </pre>
+  <!-- <pre>{{ formInputValue }}</pre> -->
 </template>
 
 <script>
 export default {
   props: {
+    testEditData:{default: {}},
+
     oldproductname: { default: "" },
     olddescription: { default: "" },
     oldprice: { default: 0.0 },
@@ -196,7 +201,6 @@ export default {
   },
   data() {
     return {
-      //never use this.
       colorsResults: [],
       brandsResults: [],
       editValue: {
@@ -208,6 +212,7 @@ export default {
         colors: this.oldcolors,
         image: this.oldimages,
       },
+      formValue:this.testEditData,
       preview: null,
       isClicked: false,
     };
@@ -230,16 +235,16 @@ export default {
     },
     submit() {
       const formInputValue = this.editValue;
-        this.editValue.productname = ""
-        this.editValue.description =""
-        this.editValue.price = 0.0
-        this.editValue.date = ""
-        this.editValue.brands = ""
-        this.editValue.colors = []
-        this.editValue.image = ""
-
-      alert("Value send" + this.editValue);
       this.$emit("form-submit", formInputValue);
+
+        // this.editValue.productname = ""
+        // this.editValue.description =""
+        // this.editValue.price = 0.0
+        // this.editValue.date = ""
+        // this.editValue.brands = ""
+        // this.editValue.colors = []
+        // this.editValue.image = ""
+
     },
     async fetchColorsResult() {
       const res = await fetch("http://localhost:4001/colors/");
@@ -267,8 +272,6 @@ export default {
 .checkbox:checked:before {
   background-color: green;
 }
-input:checked {
-  height: 50px;
-  width: 50px;
-}
+
+
 </style>

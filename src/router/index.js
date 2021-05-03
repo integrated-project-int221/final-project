@@ -13,14 +13,21 @@ const routes = [
     component: () => import('../views/About.vue')
   },
   {
-    path: '/form',
-    name: 'Form',
-    component: () => import('../views/Form.vue')
-  },
-  {
     path: '/addproduct',
     name: 'AddProduct',
     component: () => import('../views/AddProduct.vue')
+  },
+  {
+    path: '/productlist',
+    name: 'ProductList',
+    component: () => import('../views/ProductList.vue')
+  },
+  {
+    path: '/editproduct/:id',
+    name: 'EditProduct',
+    component: () => import('../views/EditProduct.vue'),
+    props: true,
+
   }
 ]
 

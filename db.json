@@ -78,79 +78,12 @@
       "id": 7
     },
     {
-      "productname": "Teammate2",
-      "description": "des",
-      "price": 500,
-      "date": "2021-04-02",
-      "brands": {
-        "id": 3,
-        "brandName": "Realme"
-      },
-      "colors": [
-        {
-          "colorId": 1,
-          "colorName": "Red",
-          "colorValue": "#FF0000"
-        },
-        {
-          "colorId": 4,
-          "colorName": "Purple",
-          "colorValue": "#800080"
-        }
-      ],
-      "image": "Product_Lg_Type.jpg",
-      "id": 10
-    },
-    {
-      "productname": "product3",
-      "description": "des2",
-      "price": 700,
-      "date": "2021-04-30",
-      "brands": {
-        "id": 4,
-        "brandName": "Xiaome"
-      },
-      "colors": [
-        {
-          "colorId": 2,
-          "colorName": "Blue",
-          "colorValue": "#0000FF"
-        }
-      ],
-      "image": "Product_Lg_Type.jpg",
-      "id": 11
-    },
-    {
-      "productname": "TestPic1",
-      "description": "des",
+      "productname": "HOYYYYYYYYYYYY",
+      "description": "",
       "price": 800,
-      "date": "2021-04-08",
-      "brands": {
-        "id": 3,
-        "brandName": "Realme"
-      },
-      "colors": [
-        {
-          "colorId": 2,
-          "colorName": "Blue",
-          "colorValue": "#0000FF"
-        },
-        {
-          "colorId": 1,
-          "colorName": "Red",
-          "colorValue": "#FF0000"
-        },
-        {
-          "colorId": 4,
-          "colorName": "Purple",
-          "colorValue": "#800080"
-        },
-        {
-          "colorId": 5,
-          "colorName": "Pink",
-          "colorValue": "#FFC0CB"
-        }
-      ],
+      "date": "2021-05-08",
+      "brands": "",
+      "colors": [],
       "image": "Product_Lg_Type.jpg",
       "id": 12
     },
@@ -209,30 +142,6 @@
     },
     {
       "productname": "NewProduct",
-      "description": "test",
-      "price": 480,
-      "date": "2021-04-29",
-      "brands": {
-        "id": 1,
-        "brandName": "Apple"
-      },
-      "colors": [
-        {
-          "colorId": 1,
-          "colorName": "Red",
-          "colorValue": "#FF0000"
-        },
-        {
-          "colorId": 2,
-          "colorName": "Blue",
-          "colorValue": "#0000FF"
-        }
-      ],
-      "image": "Product_Lg_Type.jpg",
-      "id": 15
-    },
-    {
-      "productname": "NewProduct",
       "description": "des",
       "price": 750,
       "date": "2021-04-25",
@@ -254,6 +163,30 @@
       ],
       "image": "Product_Lg_Type.jpg",
       "id": 16
+    },
+    {
+      "productname": "NewProduct",
+      "description": "",
+      "price": 0,
+      "date": "2021-05-04",
+      "brands": {
+        "id": 1,
+        "brandName": "Apple"
+      },
+      "colors": [
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 2,
+          "colorName": "Blue",
+          "colorValue": "#0000FF"
+        }
+      ],
+      "image": "Product_Lg_Type.jpg",
+      "id": 17
     }
   ],
   "brands": [

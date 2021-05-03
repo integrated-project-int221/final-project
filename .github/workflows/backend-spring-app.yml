@@ -23,4 +23,5 @@ jobs:
           uses: docker/build-push-action@v2
           with:
             push: true
-            tags: ghcr.io/tein1142/integrated-project-int221/final-project:backend        
+            tags: ghcr.io/tein1142/integrated-project-int221/final-project:backend
+

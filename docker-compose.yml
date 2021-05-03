@@ -1,0 +1,9 @@
+version: '3'
+services:
+  mysql-server:
+   build: .
+   container_name: mysql-server
+   volumes:
+    - ./data-sys:/var/lib/mysql
+   ports:
+    - "3306:3306"

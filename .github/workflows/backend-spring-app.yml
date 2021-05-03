@@ -12,18 +12,33 @@ jobs:
 
     steps:
         - uses: actions/checkout@v2
-
+            
         - name: Set up Java version
           uses: actions/setup-java@v1
           with:
             java-version: '11'
-
-        - name: Build with Maven
-          run: mvn clean install
-        - name: Upload artifact for deployment job
-          uses: actions/upload-artifact@v2
+            
+        - name: Login to GitHub Container Registry
+          user: docker/login-action@v1
           with:
-            name: java-app
-            path: '${{ github.workspace }}/target/*.jar'
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}        
+        
+        - name: Build and push
+          uses: docker/build-push-action@v2
+          with:
+            push: true
+            tags: ghcr.io/tein1142/integrated-project-int221/final-project:backend        
+        
+            #- name: Build with Maven
+            #run: mvn clean install
+
+            #- name: Upload artifact for deployment job
+            #uses: actions/upload-artifact@v2
+            #with:
+            #name: java-app
+            #path: '${{ github.workspace }}/target/*.jar'
+
 
 

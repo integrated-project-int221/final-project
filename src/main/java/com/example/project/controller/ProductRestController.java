@@ -32,7 +32,7 @@ public class ProductRestController {
 
     @PostMapping("/add")
     public Products createProduct(@RequestBody Products newProduct){
-        newProduct.setProdCode(1000);
+        newProduct.setProdCode(10000);
          productRepositories.save(newProduct);
         return newProduct;
     }

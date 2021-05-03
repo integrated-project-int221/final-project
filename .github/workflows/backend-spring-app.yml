@@ -19,7 +19,7 @@ jobs:
             java-version: '11'
             
         - name: Login to GitHub Container Registry
-          user: docker/login-action@v1
+        user: docker/login-action@v1
           with:
             registry: ghcr.io
             username: ${{ github.actor }}

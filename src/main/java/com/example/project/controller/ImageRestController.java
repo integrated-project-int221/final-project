@@ -29,10 +29,10 @@ public class ImageRestController {
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(images);
     }
 
-    @PostMapping("/upload/{id}")
-    public MultipartFile imageUpload(@RequestParam("File") MultipartFile file, @PathVariable Integer id) throws IOException {
-        String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
-                File imageFile = new File(System.getProperty("user.dir") + FILE_DIRECTORY + productRepositories.findById(id).get().getProdName() + fileType);
+    @PostMapping("/upload")
+    public MultipartFile imageUpload(@RequestParam("File") MultipartFile file)  throws IOException {
+//        String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+                File imageFile = new File(System.getProperty("user.dir") + FILE_DIRECTORY + file.getOriginalFilename() );
                 imageFile.createNewFile();
                 FileOutputStream fos = new FileOutputStream(imageFile);
                 fos.write(file.getBytes());

@@ -34,31 +34,38 @@ public class ImageRestController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<Object> imageUpload(@RequestParam("File") MultipartFile file)  throws IOException {
+    public ResponseEntity<Object> imageUpload(@RequestParam("File") MultipartFile file) throws IOException {
 //        String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
         Path path = Paths.get(FILE_DIRECTORY);
         File dir = new File(FILE_DIRECTORY);
         if (!dir.exists()) Files.createDirectories(path);
-                File imageFile = new File( FILE_DIRECTORY + file.getOriginalFilename() );
-                imageFile.createNewFile();
-                FileOutputStream fos = new FileOutputStream(imageFile);
-                fos.write(file.getBytes());
-                fos.close();
-                return new ResponseEntity<>("File upload complete", HttpStatus.OK);
+        if (FILE_DIRECTORY != null) {
+            File imageFile = new File(FILE_DIRECTORY + file.getOriginalFilename());
+            imageFile.createNewFile();
+            FileOutputStream fos = new FileOutputStream(imageFile);
+            fos.write(file.getBytes());
+            fos.close();
+            return new ResponseEntity<>("File upload complete", HttpStatus.OK);
+        } else
+            return new ResponseEntity<>("File upload fail", HttpStatus.BAD_REQUEST);
+
     }
 
     @DeleteMapping("/delete/{filename:.+}")
-    public ResponseEntity<Object> deleteImage(@PathVariable("filename") String filename){
-    File deleteFile = new File(FILE_DIRECTORY + filename);
-      deleteFile.delete();
-      return  new ResponseEntity<>("File Delete complete", HttpStatus.OK);
+    public ResponseEntity<Object> deleteImage(@PathVariable("filename") String filename) {
+        File deleteFile = new File(FILE_DIRECTORY + filename);
+        deleteFile.delete();
+        return new ResponseEntity<>("File Delete complete", HttpStatus.OK);
     }
 
     @PutMapping("/update/{filename:.+}")
-    public ResponseEntity<Object> updateImage(@RequestParam("File") MultipartFile file,@PathVariable("filename") String filename) throws IOException {
-        this.deleteImage(filename);
-        this.imageUpload(file);
-        return new ResponseEntity<>("File update complete", HttpStatus.OK);
-    }
+    public ResponseEntity<Object> updateImage(@RequestParam("File") MultipartFile file, @PathVariable("filename") String filename) throws IOException {
+        if (filename != null) {
+            this.deleteImage(filename);
+            this.imageUpload(file);
+            return new ResponseEntity<>("File update complete", HttpStatus.OK);
+        } else
+            return new ResponseEntity<>("File upload fail", HttpStatus.BAD_REQUEST);
 
+    }
 }

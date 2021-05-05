@@ -39,7 +39,7 @@ public class ImageRestController {
         Path path = Paths.get(FILE_DIRECTORY);
         File dir = new File(FILE_DIRECTORY);
         if (!dir.exists()) Files.createDirectories(path);
-        if (FILE_DIRECTORY != null) {
+        if (FILE_DIRECTORY != null ) {
             File imageFile = new File(FILE_DIRECTORY + file.getOriginalFilename());
             imageFile.createNewFile();
             FileOutputStream fos = new FileOutputStream(imageFile);

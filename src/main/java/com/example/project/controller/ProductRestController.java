@@ -51,6 +51,7 @@ public class ProductRestController {
             products.setPrice(putProduct.getPrice());
             products.setProdDescription(putProduct.getProdDescription());
             products.setProdManufactured(putProduct.getProdManufactured());
+            products.setImageName(putProduct.getImageName());
             return productRepositories.save(products);
         });
     }

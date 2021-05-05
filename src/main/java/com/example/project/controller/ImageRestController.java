@@ -3,12 +3,16 @@ package com.example.project.controller;
 import com.example.project.repositories.ProductRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.nio.file.*;
+
+
 
 @RestController
 @RequestMapping("/images")
@@ -30,15 +34,16 @@ public class ImageRestController {
     }
 
     @PostMapping("/upload")
-    public MultipartFile imageUpload(@RequestParam("File") MultipartFile file)  throws IOException {
+    public ResponseEntity<Object> imageUpload(@RequestParam("File") MultipartFile file)  throws IOException {
 //        String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
-
-                File imageFile = new File(FILE_DIRECTORY + file.getOriginalFilename() );
+        Path path = Paths.get(FILE_DIRECTORY);
+        File dir = new File(FILE_DIRECTORY);
+        if (!dir.exists()) Files.createDirectories(path);
+                File imageFile = new File( FILE_DIRECTORY + file.getOriginalFilename() );
                 imageFile.createNewFile();
                 FileOutputStream fos = new FileOutputStream(imageFile);
                 fos.write(file.getBytes());
                 fos.close();
-                return file;
-
+                return new ResponseEntity<>("File upload complete", HttpStatus.OK);
     }
 }

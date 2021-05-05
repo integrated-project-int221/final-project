@@ -28,7 +28,7 @@ public class ImageRestController {
     @GetMapping("/get/{filename:.+}")
     public ResponseEntity<byte[]> getImages(@PathVariable("filename") String filename) throws IOException {
         System.out.println(filename);
-        FileInputStream fileInputStream = new FileInputStream(FILE_DIRECTORY + filename);
+        FileInputStream fileInputStream = new FileInputStream("images\\" + filename);
         byte[] images = fileInputStream.readAllBytes();
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(images);
     }
@@ -46,4 +46,19 @@ public class ImageRestController {
                 fos.close();
                 return new ResponseEntity<>("File upload complete", HttpStatus.OK);
     }
+
+    @DeleteMapping("/delete/{filename:.+}")
+    public ResponseEntity<Object> deleteImage(@PathVariable("filename") String filename){
+    File deleteFile = new File(FILE_DIRECTORY + filename);
+      deleteFile.delete();
+      return  new ResponseEntity<>("File Delete complete", HttpStatus.OK);
+    }
+
+    @PutMapping("/update/{filename:.+}")
+    public ResponseEntity<Object> updateImage(@RequestParam("File") MultipartFile file,@PathVariable("filename") String filename) throws IOException {
+        this.deleteImage(filename);
+        this.imageUpload(file);
+        return new ResponseEntity<>("File update complete", HttpStatus.OK);
+    }
+
 }

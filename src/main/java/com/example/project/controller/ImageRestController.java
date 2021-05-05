@@ -28,7 +28,7 @@ public class ImageRestController {
     @GetMapping("/get/{filename:.+}")
     public ResponseEntity<byte[]> getImages(@PathVariable("filename") String filename) throws IOException {
         System.out.println(filename);
-        FileInputStream fileInputStream = new FileInputStream("images\\" + filename);
+        FileInputStream fileInputStream = new FileInputStream(FILE_DIRECTORY + filename);
         byte[] images = fileInputStream.readAllBytes();
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(images);
     }

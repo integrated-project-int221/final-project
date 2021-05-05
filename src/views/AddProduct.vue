@@ -1,5 +1,5 @@
 <template>
-  <div class="container border border-black">
+  <div class="container ">
     <div>Add product</div>
     <!--Add new Product-->
     <form-input @form-submit="addProduct">
@@ -15,24 +15,33 @@ export default {
   components: { FormInput },
   methods:{
     addProduct(newProduct){
+      // console.log(newProduct)
+      console.log(newProduct.imageObj)
+      console.log(newProduct.imageObj.name)
+      const fd = new FormData();
+      fd.append("File", newProduct.imageObj, newProduct.imageObj.name);
+      // axios.post(`http://52.187.35.188:3000/images/upload/${this.testEditData.prodCode}`, fd).then((res) => {
+      //   console.log(res);
+      // });
+      
       axios
-        .post("http://localhost:4001/products",newProduct
-        // {
-          // productname: this.newProduct.productname,
-          // description: this.newProduct.description,
-          // price: this.newProduct.price,
-          // date: this.newProduct.date,
-          // brands: this.newProduct.brands,
-          // colors: this.newProduct.colors,
-          // image: this.newProduct.image.name,
-        // }
-        )
+        .post("http://52.187.35.188:3000/products/add",newProduct)
         .then((response) => {
           console.log(response);
         })
-        .then(this.$router.push("/"))
+        .then(
+          // window.location.href = "http://localhost:8081/"
+          // this.$router.push("/")
+          )
         ;
-    }
+    },
+    // onSave() {
+    //   const fd = new FormData();
+    //   fd.append("File", this.selectedFile, this.selectedFile.name);
+    //   axios.post(`http://52.187.35.188:3000/images/update/${this.testEditData.prodCode}`, fd).then((res) => {
+    //     console.log(res);
+    //   });
+    // },
   }
 };
 

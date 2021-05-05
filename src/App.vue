@@ -7,7 +7,7 @@
         </span>
       </div>
       <div class="mr-6 self-center">
-        <router-link to="/about">Team</router-link>
+        <router-link to="/teammate">Team</router-link>
         <router-link to="/addproduct">Add Product</router-link>
       </div>
     </div>

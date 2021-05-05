@@ -1,4 +1,6 @@
 <template>
+  <!-- <pre>{{ productResults }}</pre> -->
+
   <div class="home">
     <div class="container">
       <section
@@ -7,36 +9,37 @@
       >
         <div class="container mx-auto">
           <div
-            class="flex flex-col w-full lg:w-1/2 justify-center items-start px-6 tracking-wide"
+            class="flex flex-col w-full justify-center items-start px-6 tracking-wide cursor-default"
           >
-            <h1 class="text-black text-2xl my-4">
-              Stripy Zig Zag Jigsaw Pillow and Duvet Set
+            <h1
+              class="text-7xl my-4 text-black font-serif font-bold p-4 bg-yellow-500"
+            >
+              Guitar Store
             </h1>
-            <a
+            <!-- <a
               class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
               href="#"
               >products</a
-            >
+            > -->
           </div>
         </div>
       </section>
-      <div class="flex justify-around">
-        <div>Products</div>
-        <div>
-          <button class="" @click="goProductList">show more>></button>
-        </div>
-      </div>
 
       <!--product-->
-      <div class="flex items-center justify-around">
-        <div class="grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-4">
+      <div class="my-8 mx-8">
+        <div class="grid grid-cols-2 gap-3 auto-cols-auto">
           <product
             v-for="product in productResults"
-            :key="product.id"
+            :key="product.productCode"
             :product="product"
             @deleteReview="deleteArray"
           ></product>
         </div>
+      </div>
+
+      <!---->
+      <div class="test">
+        <!-- <pre> {{ this.testImagesObj }} </pre> -->
       </div>
     </div>
   </div>
@@ -54,35 +57,49 @@ export default {
     return {
       productResults: [],
       openModal: false,
+      testImagesObj: "",
     };
   },
-  methods: {
-    async fetchProductResult() {
-      const res = await fetch("http://localhost:4001/products/");
-      const data = await res.json();
-      return data;
-    },
 
+  methods: {
     deleteArray(id) {
       this.productResults = this.productResults.filter((product) => {
-        return product.id !== id;
+        return product.prodCode !== id;
       });
     },
     editReview() {},
-    toggleEditModal() {
-      this.openModal = !this.openModal;
-    },
+
     goProductList() {
       this.$router.push("/productlist");
     },
-    // async fetchImageResult() {
-    //   const res = await fetch("http://localhost:4001/images/get/"+{{productResults.productname}});
-    //   const data = await res.json();
-    //   return data;
-    // },
+    async fetchImagesResult() {
+      try {
+        const res = await fetch(
+          "http://52.187.35.188:3000/images/get/Guitar.jpg"
+        );
+        const data = await res.json();
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async fetchProductResult() {
+      try {
+        const res = await fetch("http://52.187.35.188:3000/products/items");
+        const data = await res.json();
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
   async created() {
-    this.productResults = await this.fetchProductResult();
+    try {
+      this.productResults = await this.fetchProductResult();
+      this.testImagesObj = await this.fetchImagesResult();
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 </script>

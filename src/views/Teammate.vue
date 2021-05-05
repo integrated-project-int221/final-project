@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="teammate">
     <!-- <div class="container">
       <h1>This is an about page</h1>
     </div> -->
@@ -13,6 +13,7 @@
           <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">Guy</div>
             <p class=" text-base">
+              Hello, it's me. 
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
             </p>
           </div>
@@ -25,6 +26,7 @@
           <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">Tien</div>
             <p class=" text-base">
+              he's my friend.
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
             </p>
           </div>
@@ -37,6 +39,7 @@
           <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">Tar</div>
             <p class=" text-base">
+              he's my friend.
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
             </p>
           </div>

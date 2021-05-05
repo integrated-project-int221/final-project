@@ -1,102 +1,152 @@
 {
   "products": [
     {
-      "productname": "Guitar12345",
-      "description": "The Best Guitar",
-      "price": 2500,
-      "date": "2021-04-27",
+      "prodCode": 1,
       "brands": {
-        "id": 1,
-        "brandName": "Apple"
+        "brandId": 1,
+        "brandName": "Martin"
       },
-      "colors": [
-        {
-          "colorId": 4,
-          "colorName": "Purple",
-          "colorValue": "#800080"
-        },
-        {
-          "colorId": 2,
-          "colorName": "Blue",
-          "colorValue": "#0000FF"
-        },
+      "prodName": "D-12E KOA",
+      "prodDescription": "A great bang for your buck Martin packed with features: here the D-12E, a solid wood Dreadnought built with sitka spruce for the top and fantastic looking koa veneer back and sides. This all-new model is set apart from its siblings with a Style 28 multi-stripe rosette and Style 18 purfling on the back. It has an FSCÂ® Certified RichliteÂ® fingerboard and bridge, gloss body, and a hand-rubbed neck finish. Like other Road Series models, it also has FishmanÂ® MX-T electronics with a built-in soundhole tuner that auto mutes the audio output so you can tune up any time without using a pedal.",
+      "price": 49000,
+      "prodManufactured": "2021-01-01",
+      "imageName": "guitar1.jpeg",
+      "productColor": [
         {
           "colorId": 1,
           "colorName": "Red",
           "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 2,
+          "colorName": "blue",
+          "colorValue": "#0000FF"
+        },
+        {
+          "colorId": 3,
+          "colorName": "Silver",
+          "colorValue": "#C0C0C0"
         }
-      ],
-      "image": "guitar1.jpeg",
-      "id": 5
+      ]
     },
     {
-      "productname": "Guitar2",
-      "description": "The Best One Guitar.",
-      "price": 2450,
-      "date": "2021-04-24",
+      "prodCode": 2,
       "brands": {
-        "id": 3,
-        "brandName": "Realme"
+        "brandId": 1,
+        "brandName": "Martin"
       },
-      "colors": [
+      "prodName": "D17M",
+      "prodDescription": "Martin D-17M Guitar Resurrecting the look of our early Style 17 guitars, the all solid-wood 17 Series features a shaded gloss Sitka Spruce top, solid mahogany back and sides, and tortoise brown binding. The D-17M features a booming Dreadnought body, great for banging out rockers or quiet fingerpicking.",
+      "price": 46900,
+      "prodManufactured": "2021-01-01",
+      "imageName": "guitar2.jpg",
+      "productColor": [
+        {
+          "colorId": 4,
+          "colorName": "Wood",
+          "colorValue": "#996633"
+        },
         {
           "colorId": 5,
-          "colorName": "Pink",
-          "colorValue": "#FFC0CB"
+          "colorName": "Green",
+          "colorValue": "#69C08A"
         },
+        {
+          "colorId": 6,
+          "colorName": "Black",
+          "colorValue": "#000000"
+        }
+      ]
+    },
+    {
+      "prodCode": 3,
+      "brands": {
+        "brandId": 1,
+        "brandName": "Martin"
+      },
+      "prodName": "DX JOHNNY CASH",
+      "prodDescription": "Johnny Cash was famous for his one-of-kind baritone voice, distinctive all-black wardrobe, and â€” as acoustic guitar aficionados will attest â€” his beloved Martin Dreadnought. The Martin DX Johnny Cash supplies you with a stylish facsimile of his signature axe, at a price thatâ€™s sure make any guitarist smile ear to ear. This acoustic-electric guitar boasts the unmistakable Martin feel and tonality, along with a comfortable Performing Artist-profile neck and Fishman electronics for top-notch plugged-in tone. The Johnny Case DX A/E includes an eye-catching black satin finish, custom â€œautographedâ€ rosette, and star fingerboard inlays with CASH at the 17th fret â€” itâ€™s a must-have collectable for all Johnny Cash fans.",
+      "price": 23800,
+      "prodManufactured": "2021-01-01",
+      "imageName": "guitar3.jpg",
+      "productColor": [
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 2,
+          "colorName": "blue",
+          "colorValue": "#0000FF"
+        },
+        {
+          "colorId": 3,
+          "colorName": "Silver",
+          "colorValue": "#C0C0C0"
+        }
+      ]
+    },
+    {
+      "prodCode": 4,
+      "brands": {
+        "brandId": 2,
+        "brandName": "Crafter"
+      },
+      "prodName": "HD-200-LEFT HAND",
+      "prodDescription": "MODEL HD-200/FS.N BODY SHAPE Dreadnought TOP Engelmann Spruce BACK & SIDES Mahogany NECK Mahogany FINGERBOARD & BRIDGE EboTech FINGERBOARD INLAY Dot Position Marks SOUNDHOLE INLAY WD-112 Wood-look Decal TUNERS Chrome Tuners ELECTRONICS STRINGS Light (.012 - .053) COLORS Natural FINISH Satin SCALE 647.7 ãŽœ / 25.5 inches",
+      "price": 4800,
+      "prodManufactured": "2021-02-02",
+      "imageName": "guitar3.jpg",
+      "productColor": [
         {
           "colorId": 4,
-          "colorName": "Purple",
-          "colorValue": "#800080"
+          "colorName": "Wood",
+          "colorValue": "#996633"
+        },
+        {
+          "colorId": 5,
+          "colorName": "Green",
+          "colorValue": "#69C08A"
+        },
+        {
+          "colorId": 6,
+          "colorName": "Black",
+          "colorValue": "#000000"
         }
-      ],
-      "image": "guitar2.jpg",
-      "id": 6
+      ]
     },
     {
-      "productname": "Guitar3",
-      "description": "The Fantastic Guitar.",
-      "price": 3200,
-      "date": "2021-04-15",
+      "prodCode": 5,
       "brands": {
-        "id": 3,
-        "brandName": "Realme"
+        "brandId": 2,
+        "brandName": "Crafter"
       },
-      "colors": [
-        {
-          "colorId": 2,
-          "colorName": "Blue",
-          "colorValue": "#0000FF"
-        },
+      "prodName": "STG G-18CE",
+      "prodDescription": "Crafter Grand Auditorium guitars are crafted with both comfort and sound in mind. The sloped shoulder allows for easy finger picking, and the full size body delivers the projection you would expect from a dreadnaught. Our acoustic electric Grand Auditoriums have a cutaway body, allowing better access for playing past the 12th fret.",
+      "price": 19600,
+      "prodManufactured": "2021-02-02",
+      "imageName": "guitar4.jpg",
+      "productColor": [
         {
           "colorId": 1,
           "colorName": "Red",
           "colorValue": "#FF0000"
         }
-      ],
-      "image": "guitar3.jpg",
-      "id": 7
+      ]
     },
     {
-      "productname": "HOYYYYYYYYYYYY",
-      "description": "",
-      "price": 800,
-      "date": "2021-05-08",
-      "brands": "",
-      "colors": [],
-      "image": "Product_Lg_Type.jpg",
-      "id": 12
-    },
-    {
-      "productname": "AAAAA",
-      "description": "des",
-      "price": 400,
-      "date": "2021-04-28",
+      "prodCode": 6,
       "brands": {
-        "id": 2,
-        "brandName": "Samsung"
+        "brandId": 2,
+        "brandName": "Crafter"
       },
-      "colors": [
+      "prodName": "STG J-18CE",
+      "prodDescription": "Big bodies for a big sound. Our Jumbo Six and Twelve String guitars deliver everything you want in a jumbo body, fantastic volume and a big bass response. Available with solid spruce or cedar tops, and a rosewood or tiger maple back and sides.",
+      "price": 19500,
+      "prodManufactured": "2021-02-02",
+      "imageName": "guitar1.jpeg",
+      "productColor": [
         {
           "colorId": 1,
           "colorName": "Red",
@@ -104,28 +154,28 @@
         },
         {
           "colorId": 2,
-          "colorName": "Blue",
+          "colorName": "blue",
           "colorValue": "#0000FF"
         },
         {
           "colorId": 3,
-          "colorName": "Yellow",
-          "colorValue": "#FFFF00"
+          "colorName": "Silver",
+          "colorValue": "#C0C0C0"
         }
-      ],
-      "image": "Product_Lg_Type.jpg",
-      "id": 13
+      ]
     },
     {
-      "productname": "BBBBB",
-      "description": "des",
-      "price": 700,
-      "date": "2021-04-27",
+      "prodCode": 7,
       "brands": {
-        "id": 1,
-        "brandName": "Apple"
+        "brandId": 3,
+        "brandName": "Taylor"
       },
-      "colors": [
+      "prodName": "214CE-FIGURED OVANGOL DLX LTD",
+      "prodDescription": "The Taylor 241ce Deluxe Acoustic-electric Guitar adds a lively tonal streak to Taylor 200 series. This acoustic-electric is made with a sitka spruce top and figured ovangkol back and sides. You will enjoy the visual appeal and impressive tone that pleases the ear. It has a well-rounded acoustic character and showcases noteworthy note definition. Plug into the ES-2 electronics, and the true acoustic character will be transferred to your PA without the potential for sounding overly thin and compressed as other acoustic-electrics can. The 214ce Deluxe has a tropical mahogany neck with Taylor standard carve. You will fall in love with the way the neck fills your hand without hampering your playing. Whether you enjoy fingerstyle or dig in with a flat pick, the Taylor 214ce Deluxe is perfectly suited for anything you throw at it.",
+      "price": 49700,
+      "prodManufactured": "2021-03-03",
+      "imageName": "guitar3.jpg",
+      "productColor": [
         {
           "colorId": 1,
           "colorName": "Red",
@@ -133,47 +183,28 @@
         },
         {
           "colorId": 2,
-          "colorName": "Blue",
-          "colorValue": "#0000FF"
-        }
-      ],
-      "image": "guitar1.jpeg",
-      "id": 14
-    },
-    {
-      "productname": "NewProduct",
-      "description": "des",
-      "price": 750,
-      "date": "2021-04-25",
-      "brands": {
-        "id": 3,
-        "brandName": "Realme"
-      },
-      "colors": [
-        {
-          "colorId": 2,
-          "colorName": "Blue",
+          "colorName": "blue",
           "colorValue": "#0000FF"
         },
         {
           "colorId": 3,
-          "colorName": "Yellow",
-          "colorValue": "#FFFF00"
+          "colorName": "Silver",
+          "colorValue": "#C0C0C0"
         }
-      ],
-      "image": "Product_Lg_Type.jpg",
-      "id": 16
+      ]
     },
     {
-      "productname": "NewProduct",
-      "description": "",
-      "price": 0,
-      "date": "2021-05-04",
+      "prodCode": 8,
       "brands": {
-        "id": 1,
-        "brandName": "Apple"
+        "brandId": 3,
+        "brandName": "Taylor"
       },
-      "colors": [
+      "prodName": "327E V-CLASS",
+      "prodDescription": "With its unique round-shoulder dreadnought silhouette, revolutionary V-Class Bracing, and dramatically different tonal personality, Taylor 327e Grand Pacific blazes new ground for Taylor. Featuring Tasmanian blackwood back and sides and a tropical mahogany top, this alluring acoustic-electric guitar delivers a seductively bold and versatile tonal profile that is perfectly amplified by the onboard ES2 electronics. Boasting the understated elegance of Taylor 3 Series, the 327e Grand Pacific is graced by a curvaceous pickguard, 3-ring rosette, and beautiful Italian acrylic Gemstone fingerboard inlays. Its tropical mahogany neck and ebony fingerboard play flawlessly. The 327e Grand Pacific is an amazing guitar and an incredible value.",
+      "price": 87500,
+      "prodManufactured": "2021-03-03",
+      "imageName": "guitar4.jpg",
+      "productColor": [
         {
           "colorId": 1,
           "colorName": "Red",
@@ -181,12 +212,179 @@
         },
         {
           "colorId": 2,
-          "colorName": "Blue",
+          "colorName": "blue",
+          "colorValue": "#0000FF"
+        },
+        {
+          "colorId": 3,
+          "colorName": "Silver",
+          "colorValue": "#C0C0C0"
+        }
+      ]
+    },
+    {
+      "prodCode": 9,
+      "brands": {
+        "brandId": 3,
+        "brandName": "Taylor"
+      },
+      "prodName": "ACADEMY 12 LEFT HAND",
+      "prodDescription": "Taylor Academy Series makes the playing experience more accessible in every way, packing signature Taylor playing features into an affordable package. With the A12, Taylor compact Grand Concert body makes the perfect companion for fingerpicking or anyone with a lighter touch who craves the physical comfort of a small-body guitar. The guitarâ€™s design specs are optimized for playing ease.",
+      "price": 18900,
+      "prodManufactured": "2021-03-03",
+      "imageName": "guitar2.jpg",
+      "productColor": [
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 2,
+          "colorName": "blue",
+          "colorValue": "#0000FF"
+        },
+        {
+          "colorId": 3,
+          "colorName": "Silver",
+          "colorValue": "#C0C0C0"
+        }
+      ]
+    },
+    {
+      "prodCode": 10,
+      "brands": {
+        "brandId": 4,
+        "brandName": "Yamaha"
+      },
+      "prodName": "F-310",
+      "prodDescription": "Yamaha F-310 Guitar is an Acoustic guitar.It is a original guitar from Yamaha. This guitar have a good sound to played.Who is the beginner want to practice guitar.It very suitably to buy it.",
+      "price": 4290,
+      "prodManufactured": "2021-04-04",
+      "imageName": "guitar2.jpg",
+      "productColor": [
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 2,
+          "colorName": "blue",
+          "colorValue": "#0000FF"
+        },
+        {
+          "colorId": 3,
+          "colorName": "Silver",
+          "colorValue": "#C0C0C0"
+        }
+      ]
+    },
+    {
+      "prodCode": 11,
+      "brands": {
+        "brandId": 4,
+        "brandName": "Yamaha"
+      },
+      "prodName": "FS800",
+      "prodDescription": "Get incredible tone and playability at an amazing price point with the Yamaha FS800 Concert Acoustic. Featuring a solid spruce top with laminated back and sides, this stellar instrument puts out incredible tone and impressive projection. The smaller concert size of the FS800 is ideal for beginning and emerging players but also a popular choice for finger-picking and recording. Its nato neck capped with walnut is incredibly comfortable and playable â€” great for chording and lead playing. In addition, scalloped X-bracing provides further support and tonal enhancement â€” a feature we at Sweetwater really appreciate.",
+      "price": 6210,
+      "prodManufactured": "2021-04-04",
+      "imageName": "guitar2.jpg",
+      "productColor": [
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 2,
+          "colorName": "blue",
+          "colorValue": "#0000FF"
+        },
+        {
+          "colorId": 3,
+          "colorName": "Silver",
+          "colorValue": "#C0C0C0"
+        }
+      ]
+    },
+    {
+      "prodCode": 12,
+      "brands": {
+        "brandId": 4,
+        "brandName": "Yamaha"
+      },
+      "prodName": "SLG200S",
+      "prodDescription": "With the SLG200S, Yamaha has solved a headache traveling guitarists have always had to deal with: finding space for your instrument. Acoustic guitars, because of their bulk, are especially problematic. The SLG200S slim body breaks down to fit in its included compact gig bag. It will easily fit in the overhead compartment on your flight, under the seat in the band van, or anywhere else it needs to.",
+      "price": 21815,
+      "prodManufactured": "2021-04-04",
+      "imageName": "guitar2.jpg",
+      "productColor": [
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 2,
+          "colorName": "blue",
+          "colorValue": "#0000FF"
+        },
+        {
+          "colorId": 3,
+          "colorName": "Silver",
+          "colorValue": "#C0C0C0"
+        }
+      ]
+    },
+    {
+      "prodCode": 13,
+      "brands": {
+        "brandId": 5,
+        "brandName": "PRS"
+      },
+      "prodName": "CUSTOM 24 35TH CHARCOAL CHERRY BURST",
+      "prodDescription": "The 35th Anniversary Custom 24 is here to celebrate 35 years of guitar making and innovation. Designed around the guitar that started it all, the Custom 24, this limited-edition model captures the foundational elements of the iconic model and adds the musical functionality of the Paulâ€™s Guitar, creating a new, versatile platform. The 35th Anniversary Custom 24 features 85/15 treble and bass pickups that are paired with two mini-toggle switches that allow players to put either or both pickups in humbucking or true single-coil mode. The clarity and unique tones of these vintage-inspired pickups are both big and nuanced, so players can easily find their sweet spot. Join PRS in celebrating our ongoing journey with the 35th Anniversary Custom 24.  ",
+      "price": 135800,
+      "prodManufactured": "2020-05-05",
+      "imageName": "guitar2.jpg",
+      "productColor": [
+        {
+          "colorId": 1,
+          "colorName": "Red",
+          "colorValue": "#FF0000"
+        },
+        {
+          "colorId": 2,
+          "colorName": "blue",
+          "colorValue": "#0000FF"
+        },
+        {
+          "colorId": 3,
+          "colorName": "Silver",
+          "colorValue": "#C0C0C0"
+        }
+      ]
+    },
+    {
+      "prodCode": 21,
+      "brands": {
+        "brandId": 2,
+        "brandName": "Crafter"
+      },
+      "prodName": "Jazz2021",
+      "prodDescription": "With the SLG200S, Yamaha has solved a headache traveling guitarists have always had to deal with: finding space for your instrument. Acoustic guitars, because of their bulk, are especially problematic. The SLG200S slim body breaks down to fit in its included compact gig bag. It will easily fit in the overhead compartment on your flight, under the seat in the band van, or anywhere else it needs to.",
+      "price": 1130000,
+      "prodManufactured": "2021-04-22",
+      "imageName": "guitar1.jpeg",
+      "productColor": [
+        {
+          "colorId": 2,
+          "colorName": "blue",
           "colorValue": "#0000FF"
         }
-      ],
-      "image": "Product_Lg_Type.jpg",
-      "id": 17
+      ]
     }
   ],
   "brands": [

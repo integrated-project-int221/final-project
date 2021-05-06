@@ -73,8 +73,30 @@ public class ImageRestController {
 
     }
 
+    @PutMapping("/updatename/{id}/{productname}")
+    public ResponseEntity<Object> updateNameImage(@PathVariable("productname") String productName,@PathVariable Integer id){
+        String imageNameFormDB = productRepositories.findById(id).get().getImageName();
+        String productNameImage = productRepositories.findById(id).get().getProdName();
+        int countNameImageOriginal = 0;
+        for (int i=0; i < productNameImage.length(); i++ ){
+            if(productNameImage.charAt(i) != ' ') {
+                countNameImageOriginal++;
+            }
+        }
+        String imageNameOriginal = imageNameFormDB.substring(countNameImageOriginal);
+        System.out.println(imageNameOriginal);
+          String newImageName =  productName +  imageNameOriginal;
+          productRepositories.findById(id).map(products -> {
+              products.setImageName(newImageName);
+              products.setProdName(productName);
+              return productRepositories.save(products);
+          });
+        return new ResponseEntity<>("File Image Name Change complete", HttpStatus.OK);
+    }
+
     @PutMapping("/update/{productName}/{filename:.+}}")
-    public ResponseEntity<Object> updateImage(@RequestParam("File") MultipartFile file, @PathVariable("filename") String filename,@PathVariable("productName") String productName) throws IOException {
+    public ResponseEntity<Object> updateImage(@RequestParam("File") MultipartFile file, @PathVariable("filename") String filename,@PathVariable("productName") String productName)
+            throws IOException {
         try{
             this.deleteImage(filename);
             this.imageUpload(file,productName);

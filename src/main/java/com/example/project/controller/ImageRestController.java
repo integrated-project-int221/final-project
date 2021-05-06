@@ -74,7 +74,7 @@ public class ImageRestController {
     }
 
     @PutMapping("/update/{filename:.+}")
-    public ResponseEntity<Object> updateImage(@RequestParam("File") MultipartFile file, @PathVariable("filename") String filename,@RequestParam String productName) throws IOException {
+    public ResponseEntity<Object> updateImage(@RequestParam("File") MultipartFile file, @PathVariable("filename") String filename,@PathVariable("productName") String productName) throws IOException {
         try{
             this.deleteImage(filename);
             this.imageUpload(file,productName);

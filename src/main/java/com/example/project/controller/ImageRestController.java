@@ -86,6 +86,8 @@ public class ImageRestController {
         String imageNameOriginal = imageNameFormDB.substring(countNameImageOriginal);
         System.out.println(imageNameOriginal);
           String newImageName =  productName +  imageNameOriginal;
+        File oldImageName = new File(FILE_DIRECTORY + imageNameFormDB);
+        oldImageName.renameTo(new File(FILE_DIRECTORY + newImageName));
           productRepositories.findById(id).map(products -> {
               products.setImageName(newImageName);
               products.setProdName(productName);

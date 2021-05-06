@@ -42,7 +42,7 @@ public class ImageRestController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<Object> imageUpload(@RequestParam("File") MultipartFile file,@RequestBody Products Product) throws IOException {
+    public ResponseEntity<Object> imageUpload(@RequestParam("File") MultipartFile file,@RequestParam Products Product) throws IOException {
         try{
 //        String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
         Path path = Paths.get(FILE_DIRECTORY);

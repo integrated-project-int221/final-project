@@ -21,51 +21,67 @@ public class ImageRestController {
     @Autowired
     ProductRepositories productRepositories;
 
+
     @Value("${file.upload-dir}")
     String FILE_DIRECTORY;
 
 
     @GetMapping("/get/{filename:.+}")
     public ResponseEntity<byte[]> getImages(@PathVariable("filename") String filename) throws IOException {
-        System.out.println(filename);
-        FileInputStream fileInputStream = new FileInputStream(FILE_DIRECTORY + filename);
-        byte[] images = fileInputStream.readAllBytes();
-        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(images);
+        try {
+            System.out.println(filename);
+            FileInputStream fileInputStream = new FileInputStream(FILE_DIRECTORY + filename);
+            byte[] images = fileInputStream.readAllBytes();
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(images);
+        }catch (EOFException e){
+            return ResponseEntity.badRequest().body(null);
+        }
+
+
     }
 
     @PostMapping("/upload")
     public ResponseEntity<Object> imageUpload(@RequestParam("File") MultipartFile file) throws IOException {
+        try{
 //        String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
         Path path = Paths.get(FILE_DIRECTORY);
         File dir = new File(FILE_DIRECTORY);
         if (!dir.exists()) Files.createDirectories(path);
-        if (FILE_DIRECTORY != null ) {
             File imageFile = new File(FILE_DIRECTORY + file.getOriginalFilename());
+//            String imageName = productRepositories.findById(id).get().getProdName() + fileType;
             imageFile.createNewFile();
             FileOutputStream fos = new FileOutputStream(imageFile);
             fos.write(file.getBytes());
             fos.close();
             return new ResponseEntity<>("File upload complete", HttpStatus.OK);
-        } else
+        }catch (EOFException e){
             return new ResponseEntity<>("File upload fail", HttpStatus.BAD_REQUEST);
+        }
 
     }
 
     @DeleteMapping("/delete/{filename:.+}")
     public ResponseEntity<Object> deleteImage(@PathVariable("filename") String filename) {
-        File deleteFile = new File(FILE_DIRECTORY + filename);
-        deleteFile.delete();
-        return new ResponseEntity<>("File Delete complete", HttpStatus.OK);
+        try {
+            File deleteFile = new File(FILE_DIRECTORY + filename);
+            deleteFile.delete();
+            return new ResponseEntity<>("File Delete complete", HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>("File Delete fail", HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @PutMapping("/update/{filename:.+}")
     public ResponseEntity<Object> updateImage(@RequestParam("File") MultipartFile file, @PathVariable("filename") String filename) throws IOException {
-        if (filename != null) {
+        try{
             this.deleteImage(filename);
             this.imageUpload(file);
             return new ResponseEntity<>("File update complete", HttpStatus.OK);
-        } else
+        } catch (EOFException e){
             return new ResponseEntity<>("File upload fail", HttpStatus.BAD_REQUEST);
+
+        }
 
     }
 }

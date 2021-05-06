@@ -1,5 +1,6 @@
 package com.example.project.controller;
 
+import com.example.project.model.Products;
 import com.example.project.repositories.ProductRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,13 +42,13 @@ public class ImageRestController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<Object> imageUpload(@RequestParam("File") MultipartFile file) throws IOException {
+    public ResponseEntity<Object> imageUpload(@RequestParam("File") MultipartFile file,@RequestBody Products Product) throws IOException {
         try{
 //        String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
         Path path = Paths.get(FILE_DIRECTORY);
         File dir = new File(FILE_DIRECTORY);
         if (!dir.exists()) Files.createDirectories(path);
-            File imageFile = new File(FILE_DIRECTORY + file.getOriginalFilename());
+            File imageFile = new File(FILE_DIRECTORY + Product.getProdName() + file.getOriginalFilename()) ;
 //            String imageName = productRepositories.findById(id).get().getProdName() + fileType;
             imageFile.createNewFile();
             FileOutputStream fos = new FileOutputStream(imageFile);
@@ -73,10 +74,10 @@ public class ImageRestController {
     }
 
     @PutMapping("/update/{filename:.+}")
-    public ResponseEntity<Object> updateImage(@RequestParam("File") MultipartFile file, @PathVariable("filename") String filename) throws IOException {
+    public ResponseEntity<Object> updateImage(@RequestParam("File") MultipartFile file, @PathVariable("filename") String filename,@RequestBody Products Product) throws IOException {
         try{
             this.deleteImage(filename);
-            this.imageUpload(file);
+            this.imageUpload(file,Product);
             return new ResponseEntity<>("File update complete", HttpStatus.OK);
         } catch (EOFException e){
             return new ResponseEntity<>("File upload fail", HttpStatus.BAD_REQUEST);

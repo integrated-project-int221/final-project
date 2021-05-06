@@ -74,10 +74,10 @@ public class ImageRestController {
     }
 
     @PutMapping("/update/{filename:.+}")
-    public ResponseEntity<Object> updateImage(@RequestParam("File") MultipartFile file, @PathVariable("filename") String filename,@RequestBody Products Product) throws IOException {
+    public ResponseEntity<Object> updateImage(@RequestParam("File") MultipartFile file, @PathVariable("filename") String filename,@RequestParam String productName) throws IOException {
         try{
             this.deleteImage(filename);
-            this.imageUpload(file,Product);
+            this.imageUpload(file,productName);
             return new ResponseEntity<>("File update complete", HttpStatus.OK);
         } catch (EOFException e){
             return new ResponseEntity<>("File upload fail", HttpStatus.BAD_REQUEST);

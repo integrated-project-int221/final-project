@@ -42,13 +42,13 @@ public class ImageRestController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<Object> imageUpload(@RequestParam("File") MultipartFile file,@RequestParam Products Product) throws IOException {
+    public ResponseEntity<Object> imageUpload(@RequestParam("File") MultipartFile file,@RequestParam String productName) throws IOException {
         try{
 //        String fileType = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
         Path path = Paths.get(FILE_DIRECTORY);
         File dir = new File(FILE_DIRECTORY);
         if (!dir.exists()) Files.createDirectories(path);
-            File imageFile = new File(FILE_DIRECTORY + Product.getProdName() + file.getOriginalFilename()) ;
+            File imageFile = new File(FILE_DIRECTORY + productName + file.getOriginalFilename()) ;
 //            String imageName = productRepositories.findById(id).get().getProdName() + fileType;
             imageFile.createNewFile();
             FileOutputStream fos = new FileOutputStream(imageFile);

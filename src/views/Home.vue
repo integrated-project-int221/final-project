@@ -27,7 +27,7 @@
 
       <!--product-->
       <div class="my-8 mx-8">
-        <div class="grid grid-cols-2 gap-3 auto-cols-auto">
+        <div class="grid gap-3 md:grid-cols-1 lg:grid-cols-2">
           <product
             v-for="product in productResults"
             :key="product.productCode"
@@ -39,7 +39,6 @@
 
       <!---->
       <div class="test">
-        <!-- <pre> {{ this.testImagesObj }} </pre> -->
       </div>
     </div>
   </div>
@@ -57,7 +56,6 @@ export default {
     return {
       productResults: [],
       openModal: false,
-      testImagesObj: "",
     };
   },
 
@@ -72,17 +70,7 @@ export default {
     goProductList() {
       this.$router.push("/productlist");
     },
-    async fetchImagesResult() {
-      try {
-        const res = await fetch(
-          "http://52.187.35.188:3000/images/get/Guitar.jpg"
-        );
-        const data = await res.json();
-        return data;
-      } catch (error) {
-        console.log(error);
-      }
-    },
+    
     async fetchProductResult() {
       try {
         const res = await fetch("http://52.187.35.188:3000/products/items");
@@ -95,8 +83,7 @@ export default {
   },
   async created() {
     try {
-      this.productResults = await this.fetchProductResult();
-      this.testImagesObj = await this.fetchImagesResult();
+    this.productResults = await this.fetchProductResult();
     } catch (error) {
       console.log(error);
     }

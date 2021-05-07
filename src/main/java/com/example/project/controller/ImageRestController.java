@@ -75,7 +75,7 @@ public class ImageRestController {
 
     @PutMapping("/updatename/{id}/{productname}")
     public ResponseEntity<Object> updateNameImage(@PathVariable("productname") String productName,@PathVariable Integer id){
-        String imageNameFormDB = productRepositories.findById(id).get().getImageName();
+        String imageNameFromDB = productRepositories.findById(id).get().getImageName();
         String productNameImage = productRepositories.findById(id).get().getProdName();
         int countNameImageOriginal = 0;
         for (int i=0; i < productNameImage.length(); i++ ){
@@ -83,10 +83,10 @@ public class ImageRestController {
                 countNameImageOriginal++;
             }
         }
-        String imageNameOriginal = imageNameFormDB.substring(countNameImageOriginal);
+        String imageNameOriginal = imageNameFromDB.substring(countNameImageOriginal);
         System.out.println(imageNameOriginal);
           String newImageName =  productName +  imageNameOriginal;
-        File oldImageName = new File(FILE_DIRECTORY + imageNameFormDB);
+        File oldImageName = new File(FILE_DIRECTORY + imageNameFromDB);
         oldImageName.renameTo(new File(FILE_DIRECTORY + newImageName));
           productRepositories.findById(id).map(products -> {
               products.setImageName(newImageName);

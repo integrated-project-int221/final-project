@@ -1,8 +1,8 @@
 <template>
   <div class="py-6">
     <div class="flex bg-white shadow-lg rounded-lg overflow-hidden">
-      <img class="w-2/5 object-cover object-center" />
-      <!-- :src="require('../assets/' + product.imageName)" -->
+      <img class=" w-2/5 object-cover object-center max-h-80" :src="imageUrl" />
+      <!-- :src="require(imageUrl)" -->
 
       <div class="w-2/3 p-4">
         <h1 class="text-gray-900 font-bold text-2xl">
@@ -48,7 +48,7 @@
             edit
           </button>
           <button
-            class="inline-flex justify-center w-full rounded-md border border-transparent border-gray-300 px-4 py-2 bg-white text-base leading-6 font-semibold text-red-600 shadow-sm hover:bg-gray-100 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:leading-5 mx-2"
+            class="inline-flex justify-center w-full rounded-md underline border-2 border-transparent border-gray-300 px-4 py-2 bg-white text-base leading-6 font-semibold text-red-600 shadow-sm hover:bg-red-100 hover:border-red-300 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:leading-5 mx-2"
             @click="toggleDelete"
           >
             delete
@@ -59,10 +59,11 @@
     <div>
       <base-modal
         v-if="modalDelete"
+        bgcolor="#FEE2E2"
         @close="toggleDelete"
         title="Delete Product"
       >
-        <p class="text-sm leading-5 text-gray-500">
+        <p class="text-sm leading-5 text-black">
           This product will be permanently deleted from this store Are you sure
           you want to
           <span class="font-bold text-red-600">Delete</span>
@@ -82,10 +83,10 @@
       </base-modal>
     </div>
   </div>
-  <div class="test">
+  <!-- <div class="test">
     <pre>{{ imageUrl }}</pre>
-    <!-- <img :src="checkImage()" /> -->
-  </div>
+    <img :src="checkImage()" />
+  </div> -->
   <!-- <pre> {{ this.modalDelete }} </pre> -->
 </template>
 

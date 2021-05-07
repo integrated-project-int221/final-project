@@ -4,13 +4,13 @@
   >
     <!--upload photo-->
     <div class="md:flex items-center justify-center py-6 px-8">
-      <!-- <pre>img {{ imgUrlValue }} </pre> -->
+      <!-- <pre>img {{ formInputValue.imageName }} </pre> -->
 
       <div class="upload-photo">
         <div class="container border p-2 mt-3">
           <template v-if="!preview">
             <label
-              class="border-2 border-pink-500 h-64 w-64 flex flex-col items-center justify-center cursor-pointer rounded-lg shadow-lg"
+              class="border-2 border-black h-64 w-64 flex flex-col items-center justify-center cursor-pointer rounded-lg shadow-lg"
             >
               <svg
                 class="w-8 h-8"
@@ -136,7 +136,6 @@
         <input
           class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
           type="date"
-  
           placeholder="Date"
           v-model="formInputValue.prodManufactured"
         />
@@ -154,7 +153,7 @@
             type="number"
             name="number"
             id="number"
-            step="0.1"
+            step="0.01"
             required=""
             placeholder="Price"
           />
@@ -181,14 +180,13 @@
       </div>
     </form>
   </div>
-  <div class="w-screen overflow-hidden">
+  <!-- <div class="w-screen overflow-hidden">
     <pre>{{ formInputValue }}</pre>
-    <!--test img upload-->
+    test img upload
     <div></div>
-    <!-- this.preview  =  this.formInputValue.imageObj > onload()reader > assign value > this.preview -->
     <pre>img {{ imgUrlValue }} </pre>
     <pre>preview {{ preview }} </pre>
-  </div>
+  </div>  -->
 </template>
 
 <script>
@@ -203,6 +201,7 @@ export default {
     return {
       colorsResults: [],
       brandsResults: [],
+      productsResults: [],
       formInputValue: {
         prodName: "",
         prodDescription: "",
@@ -216,22 +215,42 @@ export default {
       preview: null,
       //test backend img
       //check validate
-      checkValidate: {},
+      checkValidate: {
+        errorName: false,
+        errorDescription: false,
+        errorPrice: false,
+        errorProdManufactured: false,
+        errorBrands: false,
+        // productColor: [],
+        // imageName: "",
+        // imageObj: "",
+      },
       //
       imgData: "",
       imgData2: "",
       //
-      newFile: null,
     };
   },
   methods: {
     formValidate() {
-      // if (!this.formInputValue.prodName) {
-      // }
-      // if (!this.formInputValue.prodDescription) {
-      // }
-      // if (!this.formInputValue.price) {
-      // }
+      for (let index = 0; index < this.productsResults.length; index++) {
+        // const element = array[index];
+        const allProductName = this.productsResults[index].prodName;
+        console.log(allProductName);
+        if (this.formInputValue.prodName == allProductName) {
+          this.errorName = true
+        }
+      }
+      if(this.formInputValue.prodDescription == ""){
+          this.errorDescription = true
+      }
+
+      if (!this.formInputValue.prodManufactured) {
+         this.errorProdManufactured = true
+      }
+      if (!this.formInputValue.price) {
+        this.errorPrice = true
+      }
       // if (!this.formInputValue.prodManufactured) {
       // }
       // if (!this.formInputValue.brands) {
@@ -247,7 +266,6 @@ export default {
     },
     //
     previewImage(event) {
-
       this.formInputValue.imageObj = event.target.files[0];
       //defualt ของ imageObj
       console.log("imgObj below");
@@ -273,8 +291,8 @@ export default {
         console.log(this.formInputValue.imageObj);
       }
       this.formInputValue.imageName = this.imgData + this.imgData2;
-      const formInputValue = this.formInputValue;
-      this.$emit("form-submit", formInputValue);
+      // const formInputValue = this.formInputValue;
+      this.$emit("form-submit", this.formInputValue);
     },
     async fetchColorsResult() {
       try {
@@ -295,7 +313,7 @@ export default {
       }
     },
     async fetchAllProductResult() {
-      const res = await fetch("http://52.187.35.188:3000/products/item");
+      const res = await fetch("http://52.187.35.188:3000/products/items");
       const data = await res.json();
       return data;
     },
@@ -304,6 +322,7 @@ export default {
     try {
       this.colorsResults = await this.fetchColorsResult();
       this.brandsResults = await this.fetchBrandsResult();
+      this.productsResults = await this.fetchAllProductResult();
       (this.formInputValue.prodName = this.testEditData?.prodName || ""),
         (this.formInputValue.prodDescription =
           this.testEditData?.prodDescription || ""),

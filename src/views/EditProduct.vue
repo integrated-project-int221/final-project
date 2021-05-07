@@ -2,10 +2,10 @@
   <div class="container border border-black">
     <h1 class="font-bold">Edit</h1>
     <div>
-      <pre> product: {{ this.id }}</pre>
-      <pre> url: {{ imgURL }}</pre>
-      <img :src="imgURL" />
-      <pre class="w-screen overflow-hidden"> product: {{ productByid }}</pre>
+      <!-- <pre> product: {{ this.id }}</pre> -->
+      <!-- <pre> url: {{ imgURL }}</pre> -->
+      <!-- <img :src="imgURL" /> -->
+      <!-- <pre class="w-screen overflow-hidden"> product: {{ productByid }}</pre> -->
     </div>
 
     <!--Add new Product-->
@@ -34,33 +34,33 @@ export default {
 
   methods: {
     editArray(editValue) {
-      console.log(editValue);
-      alert(editValue.imageObj);
 
-      
       if (editValue.imageObj == "") {
-        alert("Change name only");
         axios
           .put(
-            `http://52.187.35.188:3000/images/update/${this.id}/${editValue.prodName}`)
-          .then((res) => {
-            console.log(res);
+            `http://52.187.35.188:3000/images/updatename/${this.id}/${editValue.prodName}`
+          )
+          .then(() => {
             console.log("this images was send then post product");
           });
-      } 
-      else {
-        alert("Pic Change ")
+      } else {
         const fd = new FormData();
         fd.append("File", editValue.imageObj, editValue.imageObj.name);
+        
 
         axios
           .put(
-            `http://52.187.35.188:3000/images/update/${editValue.prodName}/${this.productByid.imageName}`, fd )
-          .then((res) => {
-            console.log(res);
-            console.log("this images was send then post product");
+            `http://52.187.35.188:3000/images/update/${editValue.prodName}/${this.productByid.imageName}`,
+            fd
+          )
+          .then(() => {
+            console.log(editValue.imageName);
+            console.log(this.productByid.imageName);
           });
       }
+
+      console.log("imageName");
+      console.log(editValue.imageName);
 
       axios
         .put(`http://52.187.35.188:3000/products/update/${this.id}`, editValue)
@@ -69,11 +69,10 @@ export default {
         })
         .then
         // (window.location.href = "http://localhost:8081/")
-        // this.$router.push("/")
+        this.$router.push("/")
         ();
     },
     async fetchProductResult() {
-      // const res = await fetch(`http://localhost:4001/products/${this.id}`);
       const res = await fetch(
         `http://52.187.35.188:3000/products/item/${this.id}`
       );

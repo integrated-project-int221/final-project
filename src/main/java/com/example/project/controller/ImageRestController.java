@@ -17,7 +17,6 @@ import java.nio.file.*;
 
 @RestController
 @RequestMapping("/images")
-@CrossOrigin(origins= "http://localhost:8081")
 public class ImageRestController {
     @Autowired
     ProductRepositories productRepositories;

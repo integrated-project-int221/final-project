@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RestController
 @RequestMapping("/colors")
-@CrossOrigin(origins= "http://localhost:8081")
 public class ColorRestController {
     @Autowired
     private ColorRepositories colorRepositories;

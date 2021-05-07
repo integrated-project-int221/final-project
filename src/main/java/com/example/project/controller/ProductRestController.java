@@ -1,11 +1,14 @@
 package com.example.project.controller;
 
+import com.example.project.exceptions.ExceptionResponse;
+import com.example.project.exceptions.ProductException;
 import com.example.project.model.Products;
 import com.example.project.repositories.ProductRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -27,32 +30,50 @@ public class ProductRestController {
 
     @GetMapping("/item/{id}")
     public Products itemByID(@PathVariable Integer id) {
-        return productRepositories.findById(id).orElse(null);
+        Products product =productRepositories.findById(id).orElse(null);
+        if(product==null) {
+            throw new ProductException(ExceptionResponse.ERROR_CODE.ITEM_DOES_NOT_EXIST,
+                    "Product does not exist error.");
+        }return product;
     }
 
     @PostMapping("/add")
     public Products createProduct(@RequestBody Products newProduct){
+        List<Products> productNameList = productRepositories.findByProdName(newProduct.getProdName());
         newProduct.setProdCode(10000);
-         productRepositories.save(newProduct);
+        if(!productNameList.isEmpty()) {
+            throw new ProductException(ExceptionResponse.ERROR_CODE.ITEM_ALREADY_EXIST,
+                    "Duplicate name error.");
+        }productRepositories.save(newProduct);
         return newProduct;
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteProduct(@PathVariable Integer id){
-        productRepositories.deleteById(id);
+        Products product = productRepositories.findById(id).orElse(null);
+        if(product==null){
+            throw new ProductException(ExceptionResponse.ERROR_CODE.ITEM_DOES_NOT_EXIST, "Product does not exist.");
+        }productRepositories.deleteById(id);
     }
 
     @PutMapping("/update/{id}")
     public void editProduct(@RequestBody Products putProduct,@PathVariable Integer id){
-        productRepositories.findById(id).map(products -> {
-            products.setProdName(putProduct.getProdName());
-            products.setBrands(putProduct.getBrands());
-            products.setProductColor(putProduct.getProductColor());
-            products.setPrice(putProduct.getPrice());
-            products.setProdDescription(putProduct.getProdDescription());
-            products.setProdManufactured(putProduct.getProdManufactured());
-            products.setImageName(putProduct.getImageName());
-            return productRepositories.save(products);
+        Products p= productRepositories.findById(id).orElse(null);
+        if(p==null){ throw new ProductException(ExceptionResponse.ERROR_CODE.ITEM_DOES_NOT_EXIST, "Product does not exist error."); };
+        List<Products> products=productRepositories.findAll();
+        List<Products> productStrems = products.stream().filter(prod -> prod.getProdCode() != id).collect(Collectors.toList());;
+        for(Products prod : productStrems){
+            if(prod.getProdName().equals(putProduct.getProdName())){
+                throw new ProductException(ExceptionResponse.ERROR_CODE.ITEM_ALREADY_EXIST, "Duplicate name error.");}
+        }
+        productRepositories.findById(id).map(prod -> {
+            prod.setProdName(putProduct.getProdName());
+            prod.setBrands(putProduct.getBrands());
+            prod.setProductColor(putProduct.getProductColor());
+            prod.setPrice(putProduct.getPrice());
+            prod.setProdDescription(putProduct.getProdDescription());
+            prod.setProdManufactured(putProduct.getProdManufactured());
+            return productRepositories.save(prod);
         });
     }
 }
